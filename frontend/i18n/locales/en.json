@@ -1,0 +1,110 @@
+{
+  "meta": {
+    "title": "Auto Eco Expert - Save up to €5,000 on your next vehicle",
+    "description": "Our AI analyzes the market to find you the best auto deal"
+  },
+  "hero": {
+    "title": "🚗 Your next vehicle at the lowest price? Our AI scans 2,152 offers for you!",
+    "subtitle": "1 minute with our assistant = 1 free study to save up to 40% (new or used)",
+    "cta": "Start free analysis →",
+    "urgency": "⚠️ Exclusive offer reserved for the first 100 users this month",
+    "countdownPrefix": "Expires in"
+  },
+  "howItWorks": {
+    "title": "How it works?",
+    "step1": {
+      "title": "🤖 AI Analysis",
+      "description": "Our algorithm compares 50 criteria: price, mileage, credit rate, vehicle history..."
+    },
+    "step2": {
+      "title": "📊 Custom Study",
+      "description": "You receive by email the ranking of offers, a 5-year savings simulation and verified contact details of sellers"
+    },
+    "step3": {
+      "title": "🛡️ Guarantee",
+      "description": "+3,000 vehicles inspected by our experts | 100% anonymous data"
+    }
+  },
+  "testimonials": {
+    "title": "They Saved",
+    "testimonial1": {
+      "text": "Thanks to the Clara study, I bought my 2021 BMW Series 1 for €18,400 instead of €22,000!",
+      "author": "Mark, Lille"
+    },
+    "testimonial2": {
+      "text": "The credit comparator saved me €8,200 over 5 years",
+      "author": "Sarah, Lyon"
+    }
+  },
+  "faq": {
+  "title": "Frequently Asked Questions",
+  "questions": [
+    {
+      "q": "How does your service work?",
+      "a": "Our AI analyzes over 2,000 vehicle listings in real time to find the best opportunities based on your criteria. We compare prices, history, features, and financing terms to ensure you get the best deal."
+    },
+    {
+      "q": "How much does your service cost?",
+      "a": "Our analysis and comparison service is completely free! We only earn a commission if you make a purchase through one of our recommendations, paid by the seller."
+    },
+    {
+      "q": "What guarantees do you offer?",
+      "a": "All recommended vehicles are inspected and certified. We check the complete history, technical and administrative condition. You also benefit from a minimum 6-month warranty on all used vehicles."
+    },
+    {
+      "q": "How long does the analysis take?",
+      "a": "Our AI performs the analysis in real time, in under one minute. You will then receive a detailed report by email within 24 hours, including the best personalized offers and a 5-year savings simulation."
+    },
+    {
+      "q": "In which regions are you available?",
+      "a": "We cover all of mainland France. Our network includes over 1,500 partner dealerships and resellers, ensuring you can find the ideal vehicle near you."
+    }
+  ]
+}
+,
+  "chatbot": {
+    "title": "Clara, your auto assistant",
+    "subtitle": "I help you find the best deal",
+    "welcome": "Hello! I'm Clara, your automotive economy expert. In 3 questions, I'll find your best offer. Let's start 👇",
+    "carType": "Are you looking for a new or used car?",
+    "carTypeNew": "New (save up to 30%)",
+    "carTypeUsed": "Used (up to 50% cheaper)",
+    "budget": "What is your maximum budget?",
+    "financing": "Do you want to finance your purchase?",
+    "financingCredit": "Credit",
+    "financingLease": "Leasing",
+    "financingCash": "Cash purchase",
+    "leadCapture": "Great! I have {{count}} matching offers. To receive your complete study with:",
+    "leadBenefits": [
+      "✅ The 3 best offers (new + used)",
+      "✅ Credit/leasing comparison over 5 years",
+      "✅ List of serviced vehicles < 30,000 km"
+    ],
+    "confirmationText": "Please confirm:",
+    "firstName": "Your first name*",
+    "email": "Email*",
+    "phone": "Phone (optional)",
+    "submit": "🔓 Unlock my study",
+    "thanks": "Thank you! As a bonus, receive our guide '10 tips to negotiate like a pro at the dealership'",
+    "errorSubmission": "An error occurred while submitting your information.",
+    "tryAgain": "Please check your details and try again.",
+    "successSubmission": "🎉 Success! We're analyzing your answers and will email you your personalized car study shortly."
+
+ },
+"footer": {
+  "copyright": "© {{year}} Auto Éco Expert. All rights reserved.",
+  "privacy": "Privacy Policy",
+  "terms": "Terms of Use",
+  "cookies": "Cookies",
+  "gdpr": "GDPR",
+  "quickLinks": "Quick Links",
+  "legal": "Legal Notice",
+  "contact": "Contact",
+  "dataProtection": "100% Data Protection",
+  "description": "Our AI helps you save on your next vehicle by comparing thousands of offers based on your criteria.",
+  "howItWorks": "How it works",
+  "testimonials": "Testimonials",
+  "faq": "FAQ"
+}
+
+}

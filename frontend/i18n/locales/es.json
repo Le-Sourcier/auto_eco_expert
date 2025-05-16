@@ -1,0 +1,109 @@
+{
+  "meta": {
+    "title": "Auto Eco Expert - Ahorre hasta 5.000€ en su próximo vehículo",
+    "description": "Nuestra IA analiza el mercado para encontrarle la mejor oferta de auto"
+  },
+  "hero": {
+    "title": "🚗 ¿Su próximo vehículo al precio más bajo? ¡Nuestra IA escanea 2.152 ofertas para usted!",
+    "subtitle": "1 minuto con nuestro asistente = 1 estudio gratuito para ahorrar hasta un 40% (nuevo o usado)",
+    "cta": "Iniciar análisis gratuito →",
+    "urgency": "⚠️ Oferta exclusiva reservada a los primeros 100 usuarios este mes",
+    "countdownPrefix": "Expira en"
+  },
+  "howItWorks": {
+    "title": "¿Cómo funciona?",
+    "step1": {
+      "title": "🤖 Análisis IA",
+      "description": "Nuestro algoritmo compara 50 criterios: precio, kilometraje, tasa de crédito, historial del vehículo..."
+    },
+    "step2": {
+      "title": "📊 Estudio Personalizado",
+      "description": "Recibe por email el ranking de ofertas, una simulación de ahorro a 5 años y contactos verificados de vendedores"
+    },
+    "step3": {
+      "title": "🛡️ Garantía",
+      "description": "+3.000 vehículos inspeccionados por nuestros expertos | Datos 100% anónimos"
+    }
+  },
+  "testimonials": {
+    "title": "Ellos Ahorraron",
+    "testimonial1": {
+      "text": "Gracias al estudio Clara, ¡compré mi BMW Serie 1 2021 por 18.400€ en lugar de 22.000€!",
+      "author": "Marcos, Lille"
+    },
+    "testimonial2": {
+      "text": "El comparador de crédito me ahorró 8.200€ en 5 años",
+      "author": "Sara, Lyon"
+    }
+  },
+  "faq": {
+  "title": "Preguntas Frecuentes",
+  "questions": [
+    {
+      "q": "¿Cómo funciona su servicio?",
+      "a": "Nuestra IA analiza en tiempo real más de 2.000 ofertas de vehículos para encontrarle las mejores oportunidades según sus criterios. Comparamos precios, historial, opciones y condiciones de financiación para garantizarle la mejor oferta."
+    },
+    {
+      "q": "¿Cuánto cuesta su servicio?",
+      "a": "¡Nuestro servicio de análisis y comparación es totalmente gratuito! Solo recibimos una comisión si usted realiza una compra a través de una de nuestras recomendaciones, pagada por el vendedor."
+    },
+    {
+      "q": "¿Qué garantías ofrecen?",
+      "a": "Todos los vehículos recomendados están inspeccionados y certificados. Verificamos el historial completo, el estado técnico y administrativo. Además, obtiene una garantía mínima de 6 meses en todos los vehículos de ocasión."
+    },
+    {
+      "q": "¿Cuánto tiempo tarda el análisis?",
+      "a": "Nuestra IA realiza el análisis en tiempo real, en menos de un minuto. Luego, recibirá un informe detallado por correo electrónico en un plazo de 24 horas, con las mejores ofertas personalizadas y una simulación de ahorro a 5 años."
+    },
+    {
+      "q": "¿En qué regiones están disponibles?",
+      "a": "Cubrimos toda la Francia metropolitana. Nuestra red incluye más de 1.500 concesionarios y vendedores asociados, garantizándole encontrar el vehículo ideal cerca de usted."
+    }
+  ]
+},
+
+  "chatbot": {
+    "title": "Clara, su asistente auto",
+    "subtitle": "Te ayudo a encontrar la mejor oferta",
+    "welcome": "¡Hola! Soy Clara, tu experta en economía automotriz. En 3 preguntas, encontraré tu mejor oferta. Empecemos 👇",
+    "carType": "¿Busca un coche nuevo o usado?",
+    "carTypeNew": "Nuevo (ahorre hasta un 30%)",
+    "carTypeUsed": "Usado (hasta un 50% más barato)",
+    "budget": "¿Cuál es su presupuesto máximo?",
+    "financing": "¿Desea financiar su compra?",
+    "financingCredit": "Crédito",
+    "financingLease": "Leasing",
+    "financingCash": "Compra al contado",
+    "leadCapture": "¡Genial! Tengo {{count}} ofertas coincidentes. Para recibir su estudio completo con:",
+    "leadBenefits": [
+      "✅ Las 3 mejores ofertas (nuevo + usado)",
+      "✅ Comparador crédito/leasing a 5 años",
+      "✅ Lista de vehículos revisados < 30.000 km"
+    ],
+    "confirmationText": "Por favor confirme:",
+    "firstName": "Su nombre*",
+    "email": "Email*",
+    "phone": "Teléfono (opcional)",
+    "submit": "🔓 Desbloquear mi estudio",
+    "thanks": "¡Gracias! Como bonificación, reciba nuestra guía '10 consejos para negociar como un profesional en el concesionario'",
+   "errorSubmission": "Ocurrió un error al enviar tu información.",
+   "tryAgain": "Por favor, revisa tus datos e inténtalo de nuevo.",
+  "successSubmission": "🎉 ¡Éxito! Estamos analizando sus respuestas y le enviaremos su estudio personalizado por correo electrónico en breve."
+},
+"footer": {
+  "copyright": "© {{year}} Auto Éco Expert. Todos los derechos reservados.",
+  "privacy": "Política de privacidad",
+  "terms": "Términos de uso",
+  "cookies": "Cookies",
+  "gdpr": "RGPD",
+  "quickLinks": "Enlaces rápidos",
+  "legal": "Aviso legal",
+  "contact": "Contacto",
+  "dataProtection": "Protección de datos 100%",
+  "description": "Nuestra IA le ayuda a ahorrar en su próximo vehículo comparando miles de ofertas según sus criterios.",
+  "howItWorks": "Cómo funciona",
+  "testimonials": "Testimonios",
+  "faq": "Preguntas frecuentes"
+}
+
+}

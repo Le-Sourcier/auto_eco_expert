@@ -1,0 +1,109 @@
+{
+  "meta": {
+    "title": "Auto Eco Expert - Sparen Sie bis zu 5.000€ bei Ihrem nächsten Fahrzeug",
+    "description": "Unsere KI analysiert den Markt, um das beste Autoangebot für Sie zu finden"
+  },
+  "hero": {
+    "title": "🚗 Ihr nächstes Fahrzeug zum niedrigsten Preis? Unsere KI scannt 2.152 Angebote für Sie!",
+    "subtitle": "1 Minute mit unserem Assistenten = 1 kostenlose Studie, um bis zu 40% zu sparen (neu oder gebraucht)",
+    "cta": "Kostenlose Analyse starten →",
+    "urgency": "⚠️ Exklusives Angebot für die ersten 100 Benutzer diesen Monat reserviert",
+    "countdownPrefix": "Läuft ab in"
+  },
+  "howItWorks": {
+    "title": "Wie es funktioniert?",
+    "step1": {
+      "title": "🤖 KI-Analyse",
+      "description": "Unser Algorithmus vergleicht 50 Kriterien: Preis, Kilometerstand, Kreditzins, Fahrzeughistorie..."
+    },
+    "step2": {
+      "title": "📊 Individuelle Studie",
+      "description": "Sie erhalten per E-Mail das Ranking der Angebote, eine 5-Jahres-Einsparungssimulation und verifizierte Kontaktdaten der Verkäufer"
+    },
+    "step3": {
+      "title": "🛡️ Garantie",
+      "description": "+3.000 von unseren Experten geprüfte Fahrzeuge | 100% anonyme Daten"
+    }
+  },
+  "testimonials": {
+    "title": "Sie haben gespart",
+    "testimonial1": {
+      "text": "Dank der Clara-Studie habe ich meinen BMW 1er 2021 für 18.400€ statt 22.000€ gekauft!",
+      "author": "Mark, Lille"
+    },
+    "testimonial2": {
+      "text": "Der Kreditvergleich hat mir über 5 Jahre 8.200€ gespart",
+      "author": "Sarah, Lyon"
+    }
+  },
+  "faq": {
+  "title": "Häufige Fragen",
+  "questions": [
+    {
+      "q": "Wie funktioniert Ihr Service?",
+      "a": "Unsere KI analysiert in Echtzeit über 2.000 Fahrzeugangebote, um die besten Möglichkeiten basierend auf Ihren Kriterien zu finden. Wir vergleichen Preise, Historie, Ausstattung und Finanzierungsbedingungen, um Ihnen das beste Angebot zu sichern."
+    },
+    {
+      "q": "Was kostet Ihr Service?",
+      "a": "Unser Analyse- und Vergleichsservice ist völlig kostenlos! Wir verdienen nur, wenn Sie über eine unserer Empfehlungen einen Kauf tätigen – durch eine Provision des Verkäufers."
+    },
+    {
+      "q": "Welche Garantien bieten Sie an?",
+      "a": "Alle empfohlenen Fahrzeuge werden geprüft und zertifiziert. Wir überprüfen die vollständige Historie sowie den technischen und administrativen Zustand. Außerdem erhalten Sie mindestens 6 Monate Garantie auf alle Gebrauchtfahrzeuge."
+    },
+    {
+      "q": "Wie lange dauert die Analyse?",
+      "a": "Unsere KI führt die Analyse in Echtzeit durch – in weniger als einer Minute. Anschließend erhalten Sie innerhalb von 24 Stunden einen detaillierten Bericht per E-Mail mit den besten personalisierten Angeboten und einer 5-Jahres-Ersparnissimulation."
+    },
+    {
+      "q": "In welchen Regionen sind Sie verfügbar?",
+      "a": "Wir decken ganz Frankreich ab. Unser Netzwerk umfasst über 1.500 Partnerhändler und Wiederverkäufer, sodass Sie das ideale Fahrzeug in Ihrer Nähe finden können."
+    }
+  ]
+}
+,
+  "chatbot": {
+    "title": "Clara, Ihr Auto-Assistent",
+    "subtitle": "Ich helfe Ihnen, das beste Angebot zu finden",
+    "welcome": "Hallo! Ich bin Clara, Ihre Expertin für Autoökonomie. In 3 Fragen finde ich Ihr bestes Angebot. Lassen Sie uns beginnen 👇",
+    "carType": "Suchen Sie einen Neuwagen oder einen Gebrauchtwagen?",
+    "carTypeNew": "Neu (sparen Sie bis zu 30%)",
+    "carTypeUsed": "Gebraucht (bis zu 50% günstiger)",
+    "budget": "Was ist Ihr maximales Budget?",
+    "financing": "Möchten Sie Ihren Kauf finanzieren?",
+    "financingCredit": "Kredit",
+    "financingLease": "Leasing",
+    "financingCash": "Barkauf",
+    "leadCapture": "Großartig! Ich habe {{count}} passende Angebote. Um Ihre vollständige Studie mit folgendem Inhalt zu erhalten:",
+    "leadBenefits": [
+      "✅ Die 3 besten Angebote (neu + gebraucht)",
+      "✅ Kredit-/Leasing-Vergleich über 5 Jahre",
+      "✅ Liste der gewarteten Fahrzeuge < 30.000 km"
+    ],
+    "confirmationText": "Bitte bestätigen Sie:",
+    "firstName": "Ihr Vorname*",
+    "email": "E-Mail*",
+    "phone": "Telefon (optional)",
+    "submit": "🔓 Meine Studie freischalten",
+    "thanks": "Vielen Dank! Als Bonus erhalten Sie unseren Leitfaden '10 Tipps, um beim Händler wie ein Profi zu verhandeln'",
+  "errorSubmission": "Beim Senden Ihrer Informationen ist ein Fehler aufgetreten.",
+  "tryAgain": "Bitte überprüfen Sie Ihre Angaben und versuchen Sie es erneut.",
+  "successSubmission": "🎉 Erfolgreich! Wir analysieren Ihre Angaben und senden Ihnen in Kürze Ihre personalisierte Auto-Studie per E-Mail."
+},
+"footer": {
+  "copyright": "© {{year}} Auto Éco Expert. Alle Rechte vorbehalten.",
+  "privacy": "Datenschutzrichtlinie",
+  "terms": "Nutzungsbedingungen",
+  "cookies": "Cookies",
+  "gdpr": "DSGVO",
+  "quickLinks": "Schnellzugriff",
+  "legal": "Impressum",
+  "contact": "Kontakt",
+  "dataProtection": "100% Datenschutz",
+  "description": "Unsere KI hilft Ihnen, beim Kauf Ihres nächsten Fahrzeugs zu sparen, indem sie Tausende von Angeboten nach Ihren Kriterien vergleicht.",
+  "howItWorks": "Wie es funktioniert",
+  "testimonials": "Kundenmeinungen",
+  "faq": "FAQ"
+}
+
+}
