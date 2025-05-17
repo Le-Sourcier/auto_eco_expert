@@ -22,7 +22,6 @@ const Chatbot = () => {
   const [financing, setFinancing] = useState("");
   const [showLeadForm, setShowLeadForm] = useState(false);
   const { lead, createLead } = useAuth();
-  const [result, setResult] = useState<string[]>([]);
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
@@ -121,18 +120,15 @@ const Chatbot = () => {
   };
   const handleOtherHelp = (value: string) => {
     addUserMessage(value);
-    setNeedHelp(value === "Oui");
     // if (needHelp) setCurrentStep(4);
     // else setNeedHelp(false);
-
+    setTimeout(() => {
+      addBotMessage("chatbot.great", "text");
+      setNeedHelp(value === "Oui");
+    }, 700);
     setTimeout(() => {
       addBotMessage("Besoin d'autre chose?", "buttons", ["Oui", "Non"]);
     }, 700);
-    // if (value === "non") {
-    //   setTimeout(() => {
-    //     addBotMessage("Tres bien je suis si besoin,", "text");
-    //   }, 700);
-    // }
   };
 
   const handleStartDiscu = (value: string) => {
