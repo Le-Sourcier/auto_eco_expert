@@ -80,6 +80,9 @@
       "✅ Comparador crédito/leasing a 5 años",
       "✅ Lista de vehículos revisados < 30.000 km"
     ],
+    "great": "👌 ¡Perfecto!",
+    "startAnalyzing":"🔍 Realizo un análisis rápido para encontrar las mejores ofertas para ti.",
+     "error":"⚠️ Se ha producido un error, por favor inténtelo de nuevo más tarde.",
     "confirmationText": "Por favor confirme:",
     "firstName": "Su nombre*",
     "email": "Email*",

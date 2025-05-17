@@ -80,6 +80,9 @@
       "✅ Credit/leasing comparison over 5 years",
       "✅ List of serviced vehicles < 30,000 km"
     ],
+    "great": "👌 Perfect!",
+    "startAnalyzing":"🔍 I’m running a quick analysis to uncover the best deals for you.",
+     "error":"⚠️ An error occurred, please try again later.",
     "confirmationText": "Please confirm:",
     "firstName": "Your first name*",
     "email": "Email*",

@@ -22,6 +22,7 @@ const Chatbot = () => {
   const [financing, setFinancing] = useState("");
   const [showLeadForm, setShowLeadForm] = useState(false);
   const { lead, createLead } = useAuth();
+  const [result, setResult] = useState<string[]>([]);
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
@@ -171,44 +172,19 @@ const Chatbot = () => {
     setFinancing(option);
     setCurrentStep(3);
 
-    // const offerCount = Math.floor(Math.random() * 8) + 5; // Random between 5-12
-
     setIsTyping(true);
 
-    // setTimeout(() => {
-    //   addBotMessage(t("chatbot.leadCapture", { count: offerCount }));
-
-    //   setTimeout(() => {
-    //     const benefits = t("chatbot.leadBenefits", {
-    //       returnObjects: true,
-    //     }) as string[];
-
-    //     benefits.forEach((benefit, index) => {
-    //       setTimeout(() => {
-    //         addBotMessage(benefit);
-    //       }, 700 * (index + 1));
-    //     });
-
-    //     setTimeout(() => {
-    //       addBotMessage(t("chatbot.confirmationText"));
-    //       setShowLeadForm(true);
-    //     }, 700 * (benefits.length + 1));
-    //   }, 1000);
-    // }, 700);
     setTimeout(() => {
-      // addBotMessage(t("chatbot.confirmationText"));
-      addBotMessage(`👌Parfait!`, "text");
+      addBotMessage("chatbot.great", "text");
     }, 700);
 
     setIsTyping(true);
 
     setTimeout(() => {
-      // addBotMessage(t("chatbot.confirmationText"));
-      addBotMessage(
-        `🔍 Je lance une analyse vite fait pour vous trouvé toutes les meilleures offres`,
-        "text"
-      );
-    }, 1200);
+      addBotMessage(t("chatbot.startAnalyzing"), "text");
+    }, 700);
+
+    setIsTyping(true);
 
     const res = await sendMessage({
       budget,
@@ -219,39 +195,34 @@ const Chatbot = () => {
     setIsTyping(true);
 
     if (res) {
+      const total_collections = res.jsonData[0].output.full_collections;
       const collections =
         res.jsonData[0].output.highest_recommandation_selections;
+      const selections_view =
+        res.jsonData[0].output.highest_recommendation_selections_view;
+
+      // Next step
+
       setTimeout(() => {
-        // addBotMessage(t("chatbot.confirmationText"));
         addBotMessage(
-          `✅ Les ${collections.length} meilleures offres (neuve + occasion)`,
-          "text"
+          t("chatbot.leadCapture", { count: total_collections.length })
         );
 
-        setIsTyping(false);
-      }, 700);
-      setTimeout(() => {
-        // addBotMessage(t("chatbot.confirmationText"));
-        addBotMessage(`J'ai trouvé un: `, "text");
-
-        setIsTyping(false);
-      }, 700);
-      collections.map((m) => {
         setTimeout(() => {
-          // addBotMessage(t("chatbot.confirmationText"));
-          addBotMessage(
-            `Un ${m.car_brand_id} ${m.car_model_id} au prix de ${m.budget}€ avec un taux d'intérêt de ${m.percentage_rate}.`,
-            "text"
-          );
+          selections_view.forEach((m, index) => {
+            setTimeout(() => {
+              addBotMessage(m);
+            }, 700 * (index + 1));
+          });
 
-          setIsTyping(false);
-        }, 700 * (collections.length + 1));
-      });
+          setTimeout(() => {
+            addBotMessage(t("chatbot.confirmationText"));
+            setShowLeadForm(true);
+          }, 700 * (collections.length + 1));
+        }, 1000);
+      }, 700);
     } else {
-      addBotMessage(
-        `Une erreur s'est produite, veuillez réessayer plus tard.`,
-        "text"
-      );
+      addBotMessage("chatbot.error", "text");
       setIsTyping(false);
     }
   };
@@ -286,7 +257,6 @@ const Chatbot = () => {
         language: "fr",
       });
 
-      console.log("LEAD: ", res.data);
       setIsTyping(true);
 
       if (res.error) {
@@ -310,17 +280,6 @@ const Chatbot = () => {
         }, 10000);
       }
     }
-    // // Reset conversation after some time
-    // setTimeout(async () => {
-    //   setIsOpen(false);
-    //   setMessages([]);
-    //   setCurrentStep(0);
-    //   setCarType("");
-    //   setBudget("");
-    //   setFinancing("");
-    //   // Submit the lead form data to the backend
-
-    // });
   };
 
   return (

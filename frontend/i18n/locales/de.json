@@ -80,6 +80,9 @@
       "✅ Kredit-/Leasing-Vergleich über 5 Jahre",
       "✅ Liste der gewarteten Fahrzeuge < 30.000 km"
     ],
+    "great": "👌 Perfekt!",
+    "startAnalyzing":"🔍 Ich führe eine schnelle Analyse durch, um die besten Angebote für Sie zu finden.",
+     "error":"⚠️ Ein Fehler ist aufgetreten, bitte versuchen Sie es später erneut.",
     "confirmationText": "Bitte bestätigen Sie:",
     "firstName": "Ihr Vorname*",
     "email": "E-Mail*",

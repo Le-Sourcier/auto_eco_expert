@@ -109,6 +109,7 @@ export interface RecommendationsOutput {
   highest_recommandations: number; // ex. 3
   full_collections: CarRecommendation[]; // toutes les suggestions
   highest_recommandation_selections: CarRecommendation[]; // top N
+  highest_recommendation_selections_view: string[]; // top N
 }
 
 // Enveloppe générale du webhook

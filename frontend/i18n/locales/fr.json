@@ -79,10 +79,13 @@
     "financingCash": "Achat comptant",
     "leadCapture": "Génial ! J'ai {{count}} offres correspondantes. Pour recevoir votre étude complète avec :",
     "leadBenefits": [
-      "✅ Les 3 meilleures offres (neuve + occasion)",
+      "✅ Les {{lenght}} meilleures offres (neuve + occasion)",
       "✅ Comparateur crédit/LOA sur 5 ans",
       "✅ Liste des véhicules révisés < 30 000 km"
     ],
+    "great": "👌 Parfait !",
+    "startAnalyzing":"🔍 J’effectue une analyse rapide pour dénicher les meilleures offres pour vous.",
+    "error":"⚠️ Une erreur s'est produite, veuillez réessayer plus tard.",
     "confirmationText": "Merci de confirmer :",
     "firstName": "Votre prénom*",
     "email": "Email*",
