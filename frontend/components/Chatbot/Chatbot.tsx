@@ -8,6 +8,7 @@ import "./Chatbot.css";
 import useAuth from "../../services/hooks/useAuth";
 import { ChatMessage } from "../../services/types";
 import ChatForm from "./chatForm";
+import { useWebHook } from "../../services/store/webhookChatStore";
 
 const Chatbot = () => {
   const { t } = useTranslation();
@@ -23,6 +24,8 @@ const Chatbot = () => {
   const { lead, createLead } = useAuth();
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  const { sendMessage } = useWebHook();
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -147,7 +150,6 @@ const Chatbot = () => {
         break;
       case "LOA/LLD":
       case "Leasing":
-      case "sss":
         key = "leasing";
         break;
       case "Achat comptant":
@@ -164,33 +166,94 @@ const Chatbot = () => {
     return key;
   };
 
-  const handleFinancingSelect = (option: string) => {
+  const handleFinancingSelect = async (option: string) => {
     addUserMessage(option);
     setFinancing(option);
     setCurrentStep(3);
 
-    const offerCount = Math.floor(Math.random() * 8) + 5; // Random between 5-12
+    // const offerCount = Math.floor(Math.random() * 8) + 5; // Random between 5-12
+
+    setIsTyping(true);
+
+    // setTimeout(() => {
+    //   addBotMessage(t("chatbot.leadCapture", { count: offerCount }));
+
+    //   setTimeout(() => {
+    //     const benefits = t("chatbot.leadBenefits", {
+    //       returnObjects: true,
+    //     }) as string[];
+
+    //     benefits.forEach((benefit, index) => {
+    //       setTimeout(() => {
+    //         addBotMessage(benefit);
+    //       }, 700 * (index + 1));
+    //     });
+
+    //     setTimeout(() => {
+    //       addBotMessage(t("chatbot.confirmationText"));
+    //       setShowLeadForm(true);
+    //     }, 700 * (benefits.length + 1));
+    //   }, 1000);
+    // }, 700);
+    setTimeout(() => {
+      // addBotMessage(t("chatbot.confirmationText"));
+      addBotMessage(`👌Parfait!`, "text");
+    }, 700);
+
+    setIsTyping(true);
 
     setTimeout(() => {
-      addBotMessage(t("chatbot.leadCapture", { count: offerCount }));
+      // addBotMessage(t("chatbot.confirmationText"));
+      addBotMessage(
+        `🔍 Je lance une analyse vite fait pour vous trouvé toutes les meilleures offres`,
+        "text"
+      );
+    }, 1200);
 
+    const res = await sendMessage({
+      budget,
+      car_type: carType,
+      financing_type: finacialOptionKey(financing),
+      language: "fr",
+    });
+    setIsTyping(true);
+
+    if (res) {
+      const collections =
+        res.jsonData[0].output.highest_recommandation_selections;
       setTimeout(() => {
-        const benefits = t("chatbot.leadBenefits", {
-          returnObjects: true,
-        }) as string[];
+        // addBotMessage(t("chatbot.confirmationText"));
+        addBotMessage(
+          `✅ Les ${collections.length} meilleures offres (neuve + occasion)`,
+          "text"
+        );
 
-        benefits.forEach((benefit, index) => {
-          setTimeout(() => {
-            addBotMessage(benefit);
-          }, 700 * (index + 1));
-        });
+        setIsTyping(false);
+      }, 700);
+      setTimeout(() => {
+        // addBotMessage(t("chatbot.confirmationText"));
+        addBotMessage(`J'ai trouvé un: `, "text");
 
+        setIsTyping(false);
+      }, 700);
+      collections.map((m) => {
         setTimeout(() => {
-          addBotMessage(t("chatbot.confirmationText"));
-          setShowLeadForm(true);
-        }, 700 * (benefits.length + 1));
-      }, 1000);
-    }, 700);
+          // addBotMessage(t("chatbot.confirmationText"));
+          addBotMessage(
+            `Un ${m.car_brand_id} ${m.car_model_id} au prix de ${m.budget}€ avec un taux d'intérêt de ${m.percentage_rate}.`,
+            "text"
+          );
+
+          setIsTyping(false);
+        }, 700 * (collections.length + 1));
+      });
+    } else {
+      addBotMessage(
+        `Une erreur s'est produite, veuillez réessayer plus tard.`,
+        "text"
+      );
+      setIsTyping(false);
+    }
   };
 
   const handleSubmitLead = async (

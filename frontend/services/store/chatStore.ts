@@ -45,4 +45,18 @@ export const useChatStore = create<ChatState>((set) => ({
       return [];
     }
   },
+  getBotResponse: async (id: string) => {
+    try {
+      set({ isLoading: true, error: null });
+      const res = await axios.get<ApiResponse<ChatMessage[]>>(
+        `${BASE_URL}/chat/${id}`
+      );
+      const { data } = res.data;
+      set({ message: data || [], isLoading: false });
+      return data || [];
+    } catch (error) {
+      set({ error: (error as Error).message, isLoading: false });
+      return [];
+    }
+  },
 }));
