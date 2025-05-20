@@ -25,7 +25,7 @@ const Chatbot = () => {
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  const { sendMessage } = useWebHook();
+  const { data, loading, sendMessage } = useWebHook();
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -171,7 +171,7 @@ const Chatbot = () => {
     setIsTyping(true);
 
     setTimeout(() => {
-      addBotMessage("chatbot.great", "text");
+      addBotMessage(t("chatbot.great"), "text");
     }, 700);
 
     setIsTyping(true);
@@ -180,7 +180,7 @@ const Chatbot = () => {
       addBotMessage(t("chatbot.startAnalyzing"), "text");
     }, 700);
 
-    setIsTyping(true);
+    setIsTyping(!loading);
 
     const res = await sendMessage({
       budget,
@@ -188,17 +188,14 @@ const Chatbot = () => {
       financing_type: finacialOptionKey(financing),
       language: "fr",
     });
-    setIsTyping(true);
+    const data = res.jsonData[0].output;
 
-    if (res) {
-      const total_collections = res.jsonData[0].output.full_collections;
-      const collections =
-        res.jsonData[0].output.highest_recommandation_selections;
-      const selections_view =
-        res.jsonData[0].output.highest_recommendation_selections_view;
+    if (data) {
+      const total_collections = data.full_collections;
+      const collections = data.highest_recommandation_selections;
+      const selections_view = data.highest_recommandation_selections_view;
 
       // Next step
-
       setTimeout(() => {
         addBotMessage(
           t("chatbot.leadCapture", { count: total_collections.length })

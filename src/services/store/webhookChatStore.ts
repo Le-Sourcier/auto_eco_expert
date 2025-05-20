@@ -10,14 +10,16 @@ import {
 
 export const useWebHook = create<WebHookState>((set) => ({
   data: {} as RecommendationsOutput | null,
-  isLoading: false,
+  // const [lead, setLead] = useState<Lead | null>(null);
+
+  loading: false,
   error: null,
 
   sendMessage: async ({
     ...props
   }: CarRequestType): Promise<WebhookResponse<RecommendationsOutput>> => {
     try {
-      set({ isLoading: true, error: null });
+      set({ loading: true, error: null });
       const res = await axios.post<WebhookResponse<RecommendationsOutput>>(
         `https://mgd.app.n8n.cloud/webhook/9c3cc1ab-7796-480d-905b-6878b07ba15b`,
         {
@@ -30,25 +32,15 @@ export const useWebHook = create<WebHookState>((set) => ({
           },
         }
       );
-      const { jsonData, ...rest } = res.data;
-      let data: RecommendationsOutput | null = null;
-      if (
-        Array.isArray(jsonData) &&
-        jsonData.length > 0 &&
-        jsonData[0]?.output
-      ) {
-        data = jsonData[0].output as RecommendationsOutput;
-      } else if (
-        jsonData &&
-        typeof jsonData === "object" &&
-        "collection_find_count" in jsonData
-      ) {
-        data = jsonData as unknown as RecommendationsOutput;
+
+      if (res.data.jsonData.length === 0) {
+        set({ loading: false, error: "Error occured!" });
       }
-      set({ data, isLoading: false });
-      return { ...rest, jsonData };
+      //  const {jsonData} =   res.data
+      // set({ data, loading: false, error: null });
+      // return { ...rest, jsonData };
     } catch (error) {
-      set({ error: (error as Error).message, isLoading: false });
+      set({ error: (error as Error).message, loading: false });
       throw error;
     }
   },
