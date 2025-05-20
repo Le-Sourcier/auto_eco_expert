@@ -41,15 +41,21 @@ const VideoIntro = () => {
         Votre navigateur ne prend pas en charge la lecture vidéo.
       </video>
 
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent pointer-events-none" />
 
       <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center p-6 z-10">
-        <h3 className="text-3xl md:text-4xl font-bold mb-4">
-          Trouvez la voiture de vos rêves au meilleur prix
+        <h3 className="text-3xl md:text-4xl font-bold mb-4 animate-fade-in">
+          Économisez jusqu'à 40% sur votre prochaine voiture
         </h3>
-        <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl">
-          Notre intelligence artificielle analyse en temps réel des milliers d'offres pour vous faire économiser jusqu'à 40% sur votre prochain véhicule
+        <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl animate-fade-in-delay">
+          Notre intelligence artificielle analyse en temps réel plus de 2 000 offres pour vous trouver le meilleur véhicule au prix le plus bas
         </p>
+        <button 
+          onClick={togglePlay}
+          className="bg-[var(--secondary-500)] text-[var(--primary-800)] px-8 py-3 rounded-full font-medium hover:bg-[var(--secondary-600)] transition-all transform hover:scale-105 animate-fade-in-delay-2"
+        >
+          Découvrir comment ça marche
+        </button>
       </div>
 
       <div className="absolute bottom-0 left-0 right-0 p-4 flex items-center justify-between z-20">
