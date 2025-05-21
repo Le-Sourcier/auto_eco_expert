@@ -8,9 +8,9 @@ import "./Chatbot.css";
 import useAuth from "../../services/hooks/useAuth";
 import { ChatMessage } from "../../services/types";
 import ChatForm from "./chatForm";
-import { useWebHook } from "../../services/store/webhookChatStore";
+import { useChatStore } from "../../services/store/chatStore";
 
-const Chatbot = () => {
+const Chatbot = ({ onOpen }: { onOpen?: () => void }) => {
   const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([]);
@@ -18,32 +18,55 @@ const Chatbot = () => {
   const [isTyping, setIsTyping] = useState(false);
   const [carType, setCarType] = useState("");
   const [budget, setBudget] = useState("");
-  const [needHelp, setNeedHelp] = useState(false);
+  // const [needHelp, setNeedHelp] = useState(false);
   const [financing, setFinancing] = useState("");
   const [showLeadForm, setShowLeadForm] = useState(false);
-  const { lead, createLead } = useAuth();
+  const [showChatInput, setShowChatInput] = useState(false);
+  const { lead, createLead, message: msg } = useAuth();
+  const { getMessage, sendMessage } = useChatStore();
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
-
-  const { data, loading, sendMessage } = useWebHook();
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   useEffect(() => {
+    const initialMessages = async () => {
+      if (lead) {
+        const message = await getMessage(lead.id);
+        setMessages(message);
+        setTimeout(() => {
+          setShowChatInput(true);
+        }, 1000);
+
+        if (message.length <= 0) {
+          setTimeout(() => {
+            addBotMessage(
+              t("chatbot.WELCOME_BACK", { first_name: lead.first_name }),
+              "text"
+            );
+          }, 3000);
+        }
+      }
+    };
+
+    initialMessages();
+  }, [getMessage, lead, t]);
+
+  useEffect(() => {
     scrollToBottom();
   }, [messages]);
-
   useEffect(() => {
     if (isOpen && messages.length === 0) {
       startConversation();
+      onOpen?.();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isOpen]);
 
   const startConversation = async () => {
-    if (!lead || lead.email) {
+    if (!lead || !lead.email) {
       addBotMessage(t("chatbot.welcome"));
       setTimeout(() => {
         addBotMessage(t("chatbot.carType"), "buttons", [
@@ -52,19 +75,25 @@ const Chatbot = () => {
         ]);
       }, 1000);
     } else {
-      // addBotMessage(t("chatbot.welcome"));
-      // setTimeout(() => {
-      //   addBotMessage(t("chatbot.carType"), "buttons", [
-      //     t("chatbot.carTypeNew"),
-      //     t("chatbot.carTypeUsed"),
-      //   ]);
-      // }, 1000);
+      messages.forEach((message) => {
+        sendMessage(message);
+      });
+      setTimeout(() => {
+        setShowChatInput(true);
+      }, 1000);
     }
   };
 
   const addBotMessage = (
     content: string,
-    type: "text" | "buttons" | "input" = "text",
+    type:
+      | "text"
+      | "buttons"
+      | "input"
+      | "success"
+      | "contact"
+      | "recovery"
+      | "error" = "text",
     options: string[] = []
   ) => {
     setIsTyping(true);
@@ -118,23 +147,46 @@ const Chatbot = () => {
       ]);
     }, 700);
   };
-  const handleOtherHelp = (value: string) => {
-    addUserMessage(value);
-    // if (needHelp) setCurrentStep(4);
-    // else setNeedHelp(false);
-    setTimeout(() => {
-      addBotMessage("chatbot.great", "text");
-      setNeedHelp(value === "Oui");
-    }, 700);
-    setTimeout(() => {
-      addBotMessage("Besoin d'autre chose?", "buttons", ["Oui", "Non"]);
-    }, 700);
-  };
 
-  const handleStartDiscu = (value: string) => {
+  // const handleOtherHelp = (value: string) => {
+  //   addUserMessage(value);
+  //   // setTimeout(() => {
+  //   //   if (value === "Oui") {
+  //   //     setShowChatInput(true);
+  //   //     addBotMessage("Comment puis-je vous aider ?", "text");
+  //   //   } else {
+  //   //     addBotMessage(
+  //   //       "Merci de votre confiance ! N'hésitez pas à revenir si vous avez d'autres questions.",
+  //   //       "success"
+  //   //     );
+  //   //   }
+  //   // }, 700);
+  // };
+
+  const handleStartDiscu = async (value: string) => {
     addUserMessage(value);
-    // setNeedHelp(true);
-    // setCurrentStep(4);
+    setTimeout(() => {
+      // messages.forEach((message) => {
+      // return addBotMessage();
+      // });
+    }, 700);
+
+    // setTimeout(() => {
+    //   messages.forEach((message) => {
+    //     await sendMessage(message);
+    //   });
+    // }, 700);
+
+    if (lead) {
+      const gtm = await sendMessage({
+        content: value,
+        type: "text",
+        id: lead.id,
+        isBot: false,
+      });
+
+      addBotMessage(gtm.content, gtm.type);
+    }
   };
 
   const finacialOptionKey = (key: string) => {
@@ -163,61 +215,40 @@ const Chatbot = () => {
     return key;
   };
 
-  const handleFinancingSelect = async (option: string) => {
+  const handleFinancingSelect = (option: string) => {
     addUserMessage(option);
     setFinancing(option);
     setCurrentStep(3);
 
-    setIsTyping(true);
-
-    setTimeout(() => {
-      addBotMessage(t("chatbot.great"), "text");
-    }, 700);
-
-    setIsTyping(true);
+    addBotMessage(t("chatbot.great"), "success");
 
     setTimeout(() => {
       addBotMessage(t("chatbot.startAnalyzing"), "text");
-    }, 700);
 
-    setIsTyping(!loading);
-
-    const res = await sendMessage({
-      budget,
-      car_type: carType,
-      financing_type: finacialOptionKey(financing),
-      language: "fr",
-    });
-    const data = res.jsonData[0].output;
-
-    if (data) {
-      const total_collections = data.full_collections;
-      const collections = data.highest_recommandation_selections;
-      const selections_view = data.highest_recommandation_selections_view;
-
-      // Next step
+      // Simulated analysis results
       setTimeout(() => {
+        const recommendations = [
+          "✨ Une Peugeot 208 d'occasion avec seulement 25 000 km",
+          "🌟 Une Renault Clio neuve avec une remise de 15%",
+          "💫 Une Citroën C3 récente sous garantie",
+        ];
+
         addBotMessage(
-          t("chatbot.leadCapture", { count: total_collections.length })
+          t("chatbot.leadCapture", { count: recommendations.length })
         );
 
-        setTimeout(() => {
-          selections_view.forEach((m, index) => {
-            setTimeout(() => {
-              addBotMessage(m);
-            }, 700 * (index + 1));
-          });
-
+        recommendations.forEach((rec, index) => {
           setTimeout(() => {
-            addBotMessage(t("chatbot.confirmationText"));
-            setShowLeadForm(true);
-          }, 700 * (collections.length + 1));
-        }, 1000);
-      }, 700);
-    } else {
-      addBotMessage("chatbot.error", "text");
-      setIsTyping(false);
-    }
+            addBotMessage(rec, "text");
+          }, 700 * (index + 1));
+        });
+
+        setTimeout(() => {
+          addBotMessage(t("chatbot.confirmationText"), "text");
+          setShowLeadForm(true);
+        }, 700 * (recommendations.length + 1));
+      }, 2000);
+    }, 700);
   };
 
   const handleSubmitLead = async (
@@ -225,21 +256,12 @@ const Chatbot = () => {
     email: string,
     phone: string
   ) => {
-    // Here we would normally send the data to the backend
-    // console.log({ firstName, email, phone, carType, budget, financing });
+    try {
+      setShowLeadForm(false);
 
-    setShowLeadForm(false);
-    setMessages((prevMessages) => [
-      ...prevMessages,
-      {
-        id: Date.now().toString(),
-        content: "Confirmer",
-        isBot: false,
-        options: [],
-        type: "text",
-      },
-    ]);
-    if (!lead) {
+      addUserMessage(t("chatbot.CONTACT_DETAILS_SENT"));
+      setIsTyping(true);
+
       const res = await createLead({
         first_name: firstName,
         email,
@@ -250,43 +272,63 @@ const Chatbot = () => {
         language: "fr",
       });
 
-      setIsTyping(true);
-
       if (res.error) {
-        setTimeout(() => {
-          addBotMessage(t("chatbot.errorSubmission"));
-          addBotMessage(t("chatbot.tryAgain"));
-          setShowLeadForm(true);
-        }, 10000);
-      } else {
-        addBotMessage(t("chatbot.thanks"));
-
-        setTimeout(() => {
-          addBotMessage(t("chatbot.successSubmission"));
-          setShowLeadForm(false);
-        }, 10000);
-        setTimeout(() => {
-          setShowLeadForm(false);
+        if (msg && msg == "ACCOUNT_ALREADY_EXISTS")
           setTimeout(() => {
-            handleOtherHelp(needHelp ? "Oui" : "Non");
-          }, 700);
-        }, 10000);
+            addBotMessage(
+              t(msg, { email: email.slice(0, 5) + " ..." }),
+              "recovery"
+            );
+            setShowLeadForm(false);
+          }, 1000);
+        else {
+          addBotMessage(t("chatbot.errorSubmission"), "error");
+
+          setTimeout(() => {
+            addBotMessage(t("chatbot.tryAgain"), "text");
+            setShowLeadForm(true);
+          }, 1000);
+        }
+      } else {
+        addBotMessage(t("chatbot.thanks"), "success");
+        setTimeout(() => {
+          addBotMessage(t("chatbot.successSubmission"), "success");
+          // setTimeout(() => {
+          //   addBotMessage(
+          //     "Souhaitez-vous de l'aide pour autre chose ?",
+          //     "buttons",
+          //     ["Oui", "Non"]
+          //   );
+          //   setShowChatInput(true);
+          // }, 1000);
+        }, 1000);
       }
+    } catch (error) {
+      console.error("Error submitting lead:", error);
+      addBotMessage(t("chatbot.errorSubmission"), "error");
+      setTimeout(() => {
+        setShowLeadForm(true);
+      }, 1000);
+    } finally {
+      setIsTyping(false);
     }
   };
 
   return (
     <>
-      {/* Chatbot trigger button */}
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-6 right-6 bg-[var(--secondary-500)] text-[var(--primary-800)] p-4 rounded-full shadow-lg hover:shadow-xl transition-all transform hover:scale-105 z-50"
-      >
-        <MessageSquare size={24} />
-      </button>
-
-      {/* Chatbot window */}
       <AnimatePresence>
+        <motion.button
+          onClick={() => {
+            setIsOpen(!isOpen);
+            onOpen?.();
+          }}
+          className="fixed bottom-6 right-6 bg-gradient-to-r from-[var(--secondary-500)] to-[var(--secondary-600)] text-[var(--primary-800)] p-4 rounded-full shadow-lg hover:shadow-xl transition-all transform hover:scale-105 z-50"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+        >
+          <MessageSquare size={24} />
+        </motion.button>
+
         {isOpen && (
           <motion.div
             className="chatbot-window"
@@ -301,30 +343,37 @@ const Chatbot = () => {
                 <p className="text-sm opacity-80">{t("chatbot.subtitle")}</p>
               </div>
               <button
-                onClick={() => setIsOpen(false)}
-                className="p-2 rounded-full hover:bg-[var(--primary-600)]"
+                onClick={() => {
+                  setIsOpen(false);
+                  onOpen?.();
+                }}
+                className="p-2 rounded-full hover:bg-[var(--primary-600)] transition-colors"
               >
                 <X size={20} />
               </button>
             </div>
+
             <div className="chatbot-messages">
               {messages.map((message) => (
-                <Message
-                  key={message.id}
-                  message={message}
-                  onButtonClick={
-                    currentStep === 0
-                      ? handleCarTypeSelect
-                      : currentStep === 2
-                      ? handleFinancingSelect
-                      : currentStep === 4
-                      ? handleOtherHelp
-                      : () => {}
-                  }
-                  onInputSubmit={
-                    currentStep === 1 ? handleBudgetSubmit : () => {}
-                  }
-                />
+                <>
+                  {/* {message.id} */}
+                  <Message
+                    key={message.id}
+                    message={message}
+                    onButtonClick={
+                      currentStep === 0
+                        ? handleCarTypeSelect
+                        : currentStep === 2
+                        ? handleFinancingSelect
+                        : // : currentStep === 4
+                          // ? handleOtherHelp
+                          () => {}
+                    }
+                    onInputSubmit={
+                      currentStep === 1 ? handleBudgetSubmit : () => {}
+                    }
+                  />
+                </>
               ))}
 
               {isTyping && (
@@ -339,7 +388,8 @@ const Chatbot = () => {
 
               <div ref={messagesEndRef} />
             </div>
-            {needHelp && <ChatForm onSubmit={handleStartDiscu} />}
+
+            {showChatInput && <ChatForm onSubmit={handleStartDiscu} />}
             {showLeadForm && <LeadForm onSubmit={handleSubmitLead} />}
           </motion.div>
         )}

@@ -5,17 +5,27 @@
   },
   "common": {
     "backToHome": "Retour à l'accueil",
-    "lastUpdated": "Dernière mise à jour"
+    "lastUpdated": "Dernière mise à jour",
+    "loading": "Chargement...",
+    "error": "Une erreur est survenue",
+    "retry": "Réessayer",
+    "send": "Envoyer",
+    "typeMessage": "Tapez votre message..."
   },
   "hero": {
     "title": "🚗 Votre prochain véhicule au prix le plus bas ? Notre IA scanne 2 152 offres pour vous !",
     "subtitle": "1 minute avec notre assistant = 1 étude gratuite pour économiser jusqu'à 40% (neuve ou occasion)",
     "cta": "Démarrer l'analyse gratuite →",
     "urgency": "⚠️ Offre exclusive réservée aux 100 premiers utilisateurs ce mois-ci",
-    "countdownPrefix": "Expire dans"
+    "countdownPrefix": "Expire dans",
+    "newBadge": "Nouveau",
+    "aiLabel": "Intelligence artificielle de dernière génération",
+    "mainTitle": "Révolutionnez votre recherche automobile avec notre IA experte",
+    "description": "Découvrez une nouvelle façon d'acheter votre véhicule. Notre technologie analyse en temps réel plus de 2 000 offres pour vous garantir jusqu'à 40% d'économies sur votre prochain achat."
   },
   "howItWorks": {
     "title": "Comment ça marche ?",
+    "subtitle": "Découvrez comment notre technologie révolutionne l'achat automobile",
     "step1": {
       "title": "🤖 Analyse IA",
       "description": "Notre algorithme compare 50 critères : prix, kilométrage, taux crédit, historique du véhicule..."
@@ -29,8 +39,9 @@
       "description": "+3 000 véhicules inspectés par nos experts | Données 100% anonymes"
     }
   },
-  "testimonials": {
+    "testimonials": {
     "title": "Ils Ont Économisé",
+    "SUBTITLE": "Découvrez les retours d'expérience de nos clients satisfaits",
     "testimonial1": {
       "text": "Grâce à l'étude Clara, j'ai acheté ma BMW Série 1 2021 à 18 400€ au lieu de 22 000€ !",
       "author": "Marc, Lille"
@@ -40,7 +51,26 @@
       "author": "Sarah, Lyon"
     }
   },
-  "faq": {
+  "ClientReview": {
+      "TITLE": "Avis de nos clients",
+      "SUBTITLE": "Partagez votre expérience",
+      "COMMENT_LABEL": "Votre commentaire",
+      "RATING": "Note",
+      "ADD_PHOTO": "Ajouter une photo",
+      "NAME_LABEL": "Votre nom",
+      "ANONYMOUS": "Rester anonyme",
+      "CHARACTERS": "caractères",
+      "CLICK_TO_ADD_PHOTO": "Cliquez pour ajouter une photo",
+      "POST_REVIEW": "Publier mon avis",
+      "TEAM_RESPONSE": "Réponse de l'équipe",
+      "DETAILS_PLACEHOLDER": "Partagez votre expérience en détail...",
+      "PREVIOUS": "Précédent",
+      "PAGE_INFO": "Page {{currentPage}} sur {{totalPages}}",
+      "NEXT": "Suivant",
+      "COMMENT_PLACEHOLDER": "Votre commentaire"
+    },
+
+   "faq": {
     "title": "Questions Fréquentes",
     "questions": [
       {
@@ -78,15 +108,10 @@
     "financingLease": "LOA/LLD",
     "financingCash": "Achat comptant",
     "leadCapture": "Génial ! J'ai {{count}} offres correspondantes. Pour recevoir votre étude complète avec :",
-    "leadBenefits": [
-      "✅ Les {{lenght}} meilleures offres (neuve + occasion)",
-      "✅ Comparateur crédit/LOA sur 5 ans",
-      "✅ Liste des véhicules révisés < 30 000 km"
-    ],
     "great": "👌 Parfait !",
-    "startAnalyzing":"🔍 J’effectue une analyse rapide pour dénicher les meilleures offres pour vous.",
-    "error":"⚠️ Une erreur s'est produite, veuillez réessayer plus tard.",
-    "confirmationText": "Merci de confirmer :",
+    "startAnalyzing": "🔍 J'effectue une analyse rapide pour dénicher les meilleures offres pour vous.",
+    "error": "⚠️ Une erreur s'est produite, veuillez réessayer plus tard.",
+    "confirmationText": "Pour recevoir votre étude personnalisée, merci de confirmer vos coordonnées :",
     "firstName": "Votre prénom*",
     "email": "Email*",
     "phone": "Téléphone (facultatif)",
@@ -94,127 +119,43 @@
     "thanks": "Merci ! En bonus, recevez notre guide '10 astuces pour négocier comme un pro en concession'",
     "errorSubmission": "Une erreur est survenue lors de l'envoi de vos informations.",
     "tryAgain": "Merci de vérifier vos informations et de réessayer.",
-    "successSubmission": "🎉 Merci ! Nous analysons vos réponses et vous enverrons votre étude personnalisée par e-mail dans quelques instants."
+    "successSubmission": "🎉 Merci ! Nous analysons vos réponses et vous enverrons votre étude personnalisée par e-mail dans quelques instants.",
+    "needMoreHelp": "Souhaitez-vous de l'aide pour autre chose ?",
+    "yes": "Oui",
+    "no": "Non",
+    "howElseCanIHelp": "Comment puis-je vous aider ?",
+    "thankYouFeedback": "Merci de votre confiance ! N'hésitez pas à revenir si vous avez d'autres questions.",
+    "confirmBudget": "Confirmer ce budget",
+    "CONTACT_DETAILS_SENT": "Coordonnées envoyées",
+    "CONFIRM_CODE": "Confirmer le code",
+    "CONFIRM_SLOT": "Confirmer le créneau",
+    "WELCOME_BACK":  "Ravis de vous revoir {{first_name}}, comment puis-je vous aider aujourd'hui ?"
+  },
+  
+  "intro": {
+      "SEE_HOW_WE_CAN_HELP": "Découvrez comment nous pouvons vous aider",
+      "SAVE_UP_TO_40_PERCENT": "Économisez jusqu'à 40% sur votre prochaine voiture",
+      "AI_ANALYSIS_TEXT": "Notre intelligence artificielle analyse en temps réel plus de 2 000 offres pour vous trouver le meilleur véhicule au prix le plus bas",
+      "LEARN_HOW_IT_WORKS": "Découvrir comment ça marche",
+      "BROWSER_NO_VIDEO_SUPPORT": "Votre navigateur ne prend pas en charge la lecture vidéo."
 
-},
-"footer": {
-  "copyright": "© {{year}} Auto Éco Expert. Tous droits réservés.",
-  "privacy": "Politique de confidentialité",
-  "terms": "Conditions d'utilisation",
-  "cookies": "Cookies",
-  "gdpr": "RGPD",
-  "quickLinks": "Liens rapides",
-  "legal": "Mentions légales",
-  "contact": "Contact",
-  "dataProtection": "Protection des données 100%",
-  "description": "Notre IA vous aide à économiser sur votre prochain véhicule en comparant des milliers d'offres selon vos critères.",
-  "howItWorks": "Comment ça marche",
-  "testimonials": "Témoignages",
-  "faq": "FAQ"
-}
-,
-  "privacy": {
-    "meta": {
-      "title": "Politique de Confidentialité",
-      "description": "Découvrez comment nous protégeons vos données personnelles"
     },
-    "title": "Politique de Confidentialité",
-    "lastUpdated": "Dernière mise à jour : 15 février 2024",
-    "sections": [
-      {
-        "title": "Introduction",
-        "content": "Chez Auto Éco Expert, nous accordons une importance capitale à la protection de vos données personnelles. Cette politique de confidentialité explique comment nous collectons, utilisons et protégeons vos informations personnelles lorsque vous utilisez notre service."
-      },
-      {
-        "title": "Données collectées",
-        "content": "Nous collectons les informations suivantes :\n- Informations personnelles (nom, email, téléphone)\n- Préférences de véhicules\n- Données de navigation sur notre site\n- Informations techniques (adresse IP, type de navigateur)"
-      },
-      {
-        "title": "Utilisation des données",
-        "content": "Vos données sont utilisées pour :\n- Personnaliser votre recherche de véhicule\n- Vous envoyer des offres pertinentes\n- Améliorer nos services\n- Respecter nos obligations légales"
-      },
-      {
-        "title": "Protection des données",
-        "content": "Nous mettons en œuvre des mesures de sécurité techniques et organisationnelles pour protéger vos données contre tout accès non autorisé, modification, divulgation ou destruction."
-      },
-      {
-        "title": "Vos droits",
-        "content": "Vous disposez des droits suivants :\n- Accès à vos données\n- Rectification des données inexactes\n- Suppression de vos données\n- Opposition au traitement\n- Portabilité des données"
-      }
-    ]
+
+  "footer": {
+    "copyright": "© {{year}} Auto Éco Expert. Tous droits réservés.",
+    "privacy": "Politique de confidentialité",
+    "terms": "Conditions d'utilisation",
+    "cookies": "Cookies",
+    "gdpr": "RGPD",
+    "quickLinks": "Liens rapides",
+    "legal": "Mentions légales",
+    "contact": "Contact",
+    "dataProtection": "Protection des données 100%",
+    "description": "Notre IA vous aide à économiser sur votre prochain véhicule en comparant des milliers d'offres selon vos critères.",
+    "howItWorks": "Comment ça marche",
+    "testimonials": "Témoignages",
+    "faq": "FAQ"
   },
-  "terms": {
-    "meta": {
-      "title": "Conditions d'Utilisation",
-      "description": "Consultez nos conditions générales d'utilisation"
-    },
-    "title": "Conditions d'Utilisation",
-    "lastUpdated": "Dernière mise à jour : 15 février 2024",
-    "sections": [
-      {
-        "title": "Acceptation des conditions",
-        "content": "En utilisant notre service, vous acceptez d'être lié par ces conditions. Si vous n'acceptez pas ces conditions, veuillez ne pas utiliser notre service."
-      },
-      {
-        "title": "Description du service",
-        "content": "Auto Éco Expert est une plateforme d'analyse comparative des offres automobiles. Nous utilisons l'intelligence artificielle pour vous aider à trouver les meilleures offres."
-      },
-      {
-        "title": "Responsabilités",
-        "content": "Auto Éco Expert agit comme intermédiaire et ne peut être tenu responsable des transactions finales entre vous et les vendeurs. Nous nous efforçons de fournir des informations précises mais ne garantissons pas l'exactitude absolue des données."
-      },
-      {
-        "title": "Propriété intellectuelle",
-        "content": "Tout le contenu présent sur notre site (textes, images, logos) est protégé par le droit d'auteur et reste notre propriété exclusive."
-      }
-    ]
-  },
-  "cookies": {
-    "meta": {
-      "title": "Politique des Cookies",
-      "description": "Comprendre l'utilisation des cookies sur notre site"
-    },
-    "title": "Politique des Cookies",
-    "lastUpdated": "Dernière mise à jour : 15 février 2024",
-    "sections": [
-      {
-        "title": "Qu'est-ce qu'un cookie ?",
-        "content": "Les cookies sont de petits fichiers texte stockés sur votre appareil qui nous permettent d'améliorer votre expérience sur notre site."
-      },
-      {
-        "title": "Types de cookies utilisés",
-        "content": "Nous utilisons les types de cookies suivants :\n- Cookies essentiels : nécessaires au fonctionnement du site\n- Cookies analytiques : pour comprendre l'utilisation du site\n- Cookies de préférence : pour mémoriser vos choix\n- Cookies marketing : pour personnaliser les publicités"
-      },
-      {
-        "title": "Gestion des cookies",
-        "content": "Vous pouvez contrôler et/ou supprimer les cookies comme vous le souhaitez. Vous pouvez supprimer tous les cookies déjà présents sur votre appareil et paramétrer la plupart des navigateurs pour qu'ils les bloquent."
-      }
-    ]
-  },
-  "gdpr": {
-    "meta": {
-      "title": "Conformité RGPD",
-      "description": "Notre engagement pour la protection de vos données selon le RGPD"
-    },
-    "title": "Conformité RGPD",
-    "lastUpdated": "Dernière mise à jour : 15 février 2024",
-    "sections": [
-      {
-        "title": "Base légale",
-        "content": "Nous traitons vos données personnelles sur les bases légales suivantes :\n- Votre consentement\n- L'exécution d'un contrat\n- Nos obligations légales\n- Nos intérêts légitimes"
-      },
-      {
-        "title": "Vos droits RGPD",
-        "content": "Conformément au RGPD, vous disposez des droits suivants :\n- Droit d'accès\n- Droit de rectification\n- Droit à l'effacement\n- Droit à la limitation du traitement\n- Droit à la portabilité\n- Droit d'opposition"
-      },
-      {
-        "title": "Transfert des données",
-        "content": "Vos données sont hébergées exclusivement dans l'Union Européenne. Nous ne transférons pas vos données personnelles en dehors de l'UE sans garanties appropriées."
-      },
-      {
-        "title": "Délégué à la protection des données",
-        "content": "Pour toute question concernant le traitement de vos données personnelles, vous pouvez contacter notre DPO à : dpo@auto-eco-expert.fr"
-      }
-    ]
-  }
+  "ACCOUNT_ALREADY_EXISTS": "Un compte existe déjà pour l'adresse : {{email}}. Nous venons de vous envoyer un e-mail contenant un code à 5 chiffres pour récupérer votre compte. Ce code est valide 15 minutes."
+
 }

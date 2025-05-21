@@ -3,15 +3,29 @@
     "title": "Auto Eco Expert - Ahorre hasta 5.000€ en su próximo vehículo",
     "description": "Nuestra IA analiza el mercado para encontrarle la mejor oferta de auto"
   },
+  "common": {
+    "backToHome": "Volver al inicio",
+    "lastUpdated": "Última actualización",
+    "loading": "Cargando...",
+    "error": "Ha ocurrido un error",
+    "retry": "Intentar de nuevo",
+    "send": "Enviar",
+    "typeMessage": "Escriba su mensaje..."
+  },
   "hero": {
     "title": "🚗 ¿Su próximo vehículo al precio más bajo? ¡Nuestra IA escanea 2.152 ofertas para usted!",
     "subtitle": "1 minuto con nuestro asistente = 1 estudio gratuito para ahorrar hasta un 40% (nuevo o usado)",
     "cta": "Iniciar análisis gratuito →",
     "urgency": "⚠️ Oferta exclusiva reservada a los primeros 100 usuarios este mes",
-    "countdownPrefix": "Expira en"
+    "countdownPrefix": "Expira en",
+    "newBadge": "Nuevo",
+    "aiLabel": "Inteligencia Artificial de última generación",
+    "mainTitle": "Revolucione su búsqueda de auto con nuestra experiencia en IA",
+    "description": "Descubra una nueva forma de comprar su auto. Nuestra tecnología analiza más de 2.000 ofertas en tiempo real para garantizarle hasta un 40% de ahorro en su próxima compra."
   },
   "howItWorks": {
     "title": "¿Cómo funciona?",
+    "subtitle": "Descubra cómo nuestra tecnología revoluciona la compra de autos",
     "step1": {
       "title": "🤖 Análisis IA",
       "description": "Nuestro algoritmo compara 50 criterios: precio, kilometraje, tasa de crédito, historial del vehículo..."
@@ -27,6 +41,7 @@
   },
   "testimonials": {
     "title": "Ellos Ahorraron",
+    "SUBTITLE": "Descubra las opiniones de nuestros clientes satisfechos",
     "testimonial1": {
       "text": "Gracias al estudio Clara, ¡compré mi BMW Serie 1 2021 por 18.400€ en lugar de 22.000€!",
       "author": "Marcos, Lille"
@@ -36,7 +51,27 @@
       "author": "Sara, Lyon"
     }
   },
-  "faq": {
+  
+  "ClientReview": {
+      "TITLE": "Opiniones de clientes",
+      "SUBTITLE": "Comparta su experiencia",
+      "COMMENT_LABEL": "Su comentario",
+      "RATING": "Nota",
+      "ADD_PHOTO": "Agregar una foto",
+      "NAME_LABEL": "Su nombre",
+      "ANONYMOUS": "Permanecer en el anonimato",
+      "CHARACTERS": "caracteres",
+      "CLICK_TO_ADD_PHOTO": "Haga clic para agregar una foto",
+      "POST_REVIEW": "Publicar mi opinión",
+      "TEAM_RESPONSE": "Respuesta del equipo",
+      "DETAILS_PLACEHOLDER": "Comparta su experiencia en detalle...",
+      "PREVIOUS": "Anterior",
+      "PAGE_INFO": "Página {{currentPage}} de {{totalPages}}",
+      "NEXT": "Siguiente",
+      "COMMENT_PLACEHOLDER": "Su comentario"
+    },
+
+   "faq": {
   "title": "Preguntas Frecuentes",
   "questions": [
     {
@@ -75,38 +110,54 @@
     "financingLease": "Leasing",
     "financingCash": "Compra al contado",
     "leadCapture": "¡Genial! Tengo {{count}} ofertas coincidentes. Para recibir su estudio completo con:",
-    "leadBenefits": [
-      "✅ Las 3 mejores ofertas (nuevo + usado)",
-      "✅ Comparador crédito/leasing a 5 años",
-      "✅ Lista de vehículos revisados < 30.000 km"
-    ],
     "great": "👌 ¡Perfecto!",
-    "startAnalyzing":"🔍 Realizo un análisis rápido para encontrar las mejores ofertas para ti.",
-     "error":"⚠️ Se ha producido un error, por favor inténtelo de nuevo más tarde.",
-    "confirmationText": "Por favor confirme:",
+    "startAnalyzing": "🔍 Realizo un análisis rápido para encontrar las mejores ofertas para ti.",
+    "error": "⚠️ Se ha producido un error, por favor inténtelo de nuevo más tarde.",
+    "confirmationText": "Para recibir su estudio personalizado, confirme sus datos:",
     "firstName": "Su nombre*",
     "email": "Email*",
     "phone": "Teléfono (opcional)",
     "submit": "🔓 Desbloquear mi estudio",
     "thanks": "¡Gracias! Como bonificación, reciba nuestra guía '10 consejos para negociar como un profesional en el concesionario'",
-   "errorSubmission": "Ocurrió un error al enviar tu información.",
-   "tryAgain": "Por favor, revisa tus datos e inténtalo de nuevo.",
-  "successSubmission": "🎉 ¡Éxito! Estamos analizando sus respuestas y le enviaremos su estudio personalizado por correo electrónico en breve."
-},
-"footer": {
-  "copyright": "© {{year}} Auto Éco Expert. Todos los derechos reservados.",
-  "privacy": "Política de privacidad",
-  "terms": "Términos de uso",
-  "cookies": "Cookies",
-  "gdpr": "RGPD",
-  "quickLinks": "Enlaces rápidos",
-  "legal": "Aviso legal",
-  "contact": "Contacto",
-  "dataProtection": "Protección de datos 100%",
-  "description": "Nuestra IA le ayuda a ahorrar en su próximo vehículo comparando miles de ofertas según sus criterios.",
-  "howItWorks": "Cómo funciona",
-  "testimonials": "Testimonios",
-  "faq": "Preguntas frecuentes"
-}
+    "errorSubmission": "Ocurrió un error al enviar tu información.",
+    "tryAgain": "Por favor, revisa tus datos e inténtalo de nuevo.",
+    "successSubmission": "🎉 ¡Éxito! Estamos analizando sus respuestas y le enviaremos su estudio personalizado por correo electrónico en breve.",
+    "needMoreHelp": "¿Desea ayuda con algo más?",
+    "yes": "Sí",
+    "no": "No",
+    "howElseCanIHelp": "¿Cómo puedo ayudarte?",
+    "thankYouFeedback": "¡Gracias por su confianza! No dude en volver si tiene más preguntas.",
+    "confirmBudget": "Confirmar este presupuesto",
+    "CONTACT_DETAILS_SENT": "Datos de contacto enviados",
+    "CONFIRM_CODE": "Confirmar código",
+    "CONFIRM_SLOT": "Confirmar franja",
+    "WELCOME_BACK": "Encantado de verte de nuevo, {{first_name}}! ¿Cómo puedo ayudarte hoy?"
+
+  },
+  "intro": {
+      "SEE_HOW_WE_CAN_HELP": "Descubra cómo podemos ayudarle",
+      "SAVE_UP_TO_40_PERCENT": "Ahorre hasta un 40 % en su próximo coche",
+      "AI_ANALYSIS_TEXT": "Nuestra IA analiza en tiempo real más de 2.000 ofertas para encontrarle el mejor vehículo al precio más bajo",
+      "LEARN_HOW_IT_WORKS": "Descubra cómo funciona",
+      "BROWSER_NO_VIDEO_SUPPORT": "Su navegador no es compatible con la reproducción de video."
+
+    },
+
+  "footer": {
+    "copyright": "© {{year}} Auto Eco Expert. Todos los derechos reservados.",
+    "privacy": "Política de privacidad",
+    "terms": "Términos de uso",
+    "cookies": "Cookies",
+    "gdpr": "RGPD",
+    "quickLinks": "Enlaces rápidos",
+    "legal": "Aviso legal",
+    "contact": "Contacto",
+    "dataProtection": "Protección de datos 100%",
+    "description": "Nuestra IA le ayuda a ahorrar en su próximo vehículo comparando miles de ofertas según sus criterios.",
+    "howItWorks": "Cómo funciona",
+    "testimonials": "Testimonios",
+    "faq": "Preguntas frecuentes"
+  },
+  "ACCOUNT_ALREADY_EXISTS": "Ya existe una cuenta para esta dirección: {{email}}. Acabamos de enviarle un correo electrónico con un código de 5 dígitos para recuperar su cuenta. Este código es válido durante 15 minutos."
 
 }

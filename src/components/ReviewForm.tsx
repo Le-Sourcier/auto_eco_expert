@@ -1,5 +1,6 @@
-import { useState } from 'react';
-import { Star, Upload } from 'lucide-react';
+import { useState } from "react";
+import { Star, Upload } from "lucide-react";
+import { t } from "i18next";
 
 interface ReviewFormProps {
   onSubmit: (review: {
@@ -13,8 +14,8 @@ interface ReviewFormProps {
 
 const ReviewForm = ({ onSubmit }: ReviewFormProps) => {
   const [rating, setRating] = useState(0);
-  const [comment, setComment] = useState('');
-  const [name, setName] = useState('');
+  const [comment, setComment] = useState("");
+  const [name, setName] = useState("");
   const [isAnonymous, setIsAnonymous] = useState(false);
   const [photo, setPhoto] = useState<File | null>(null);
   const [photoPreview, setPhotoPreview] = useState<string | null>(null);
@@ -45,8 +46,8 @@ const ReviewForm = ({ onSubmit }: ReviewFormProps) => {
 
     // Reset form
     setRating(0);
-    setComment('');
-    setName('');
+    setComment("");
+    setName("");
     setIsAnonymous(false);
     setPhoto(null);
     setPhotoPreview(null);
@@ -55,11 +56,13 @@ const ReviewForm = ({ onSubmit }: ReviewFormProps) => {
   return (
     <form onSubmit={handleSubmit} className="bg-white rounded-xl shadow-lg p-6">
       <h3 className="text-2xl font-bold text-[var(--primary-800)] mb-6">
-        Partagez votre expérience
+        {t("ClientReview.SUBTITLE")}
       </h3>
 
       <div className="mb-6">
-        <label className="block text-[var(--primary-600)] mb-2">Note</label>
+        <label className="block text-[var(--primary-600)] mb-2">
+          {t("ClientReview.RATING")}
+        </label>
         <div className="flex gap-2">
           {[1, 2, 3, 4, 5].map((value) => (
             <button
@@ -72,8 +75,8 @@ const ReviewForm = ({ onSubmit }: ReviewFormProps) => {
                 size={32}
                 className={`${
                   value <= rating
-                    ? 'text-[var(--secondary-500)] fill-[var(--secondary-500)]'
-                    : 'text-gray-300'
+                    ? "text-[var(--secondary-500)] fill-[var(--secondary-500)]"
+                    : "text-gray-300"
                 } transition-colors`}
               />
             </button>
@@ -83,7 +86,7 @@ const ReviewForm = ({ onSubmit }: ReviewFormProps) => {
 
       <div className="mb-6">
         <label className="block text-[var(--primary-600)] mb-2">
-          Votre commentaire
+          {t("ClientReview.COMMENT_LABEL")}
         </label>
         <textarea
           value={comment}
@@ -91,16 +94,16 @@ const ReviewForm = ({ onSubmit }: ReviewFormProps) => {
           maxLength={500}
           rows={4}
           className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[var(--primary-300)] focus:border-transparent"
-          placeholder="Partagez votre expérience en détail..."
+          placeholder={t("ClientReview.DETAILS_PLACEHOLDER")}
         />
         <div className="text-sm text-gray-500 mt-1">
-          {comment.length}/500 caractères
+          {comment.length}/500 {t("ClientReview.CHARACTERS")}
         </div>
       </div>
 
       <div className="mb-6">
         <label className="block text-[var(--primary-600)] mb-2">
-          Ajouter une photo
+          {t("ClientReview.ADD_PHOTO")}
         </label>
         <div className="relative">
           <input
@@ -123,7 +126,9 @@ const ReviewForm = ({ onSubmit }: ReviewFormProps) => {
             ) : (
               <div className="text-center">
                 <Upload className="mx-auto text-gray-400 mb-2" />
-                <span className="text-gray-500">Cliquez pour ajouter une photo</span>
+                <span className="text-gray-500">
+                  {t("ClientReview.CLICK_TO_ADD_PHOTO")}
+                </span>
               </div>
             )}
           </label>
@@ -132,14 +137,14 @@ const ReviewForm = ({ onSubmit }: ReviewFormProps) => {
 
       <div className="mb-6">
         <label className="block text-[var(--primary-600)] mb-2">
-          Votre nom
+          {t("ClientReview.NAME_LABEL")}
         </label>
         <input
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
           className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[var(--primary-300)] focus:border-transparent"
-          placeholder="Votre nom"
+          placeholder={t("ClientReview.NAME_LABEL")}
           disabled={isAnonymous}
         />
         <div className="mt-2">
@@ -150,7 +155,9 @@ const ReviewForm = ({ onSubmit }: ReviewFormProps) => {
               onChange={(e) => setIsAnonymous(e.target.checked)}
               className="rounded text-[var(--primary-600)]"
             />
-            <span className="ml-2 text-gray-600">Rester anonyme</span>
+            <span className="ml-2 text-gray-600">
+              {t("ClientReview.ANONYMOUS")}
+            </span>
           </label>
         </div>
       </div>
@@ -160,7 +167,7 @@ const ReviewForm = ({ onSubmit }: ReviewFormProps) => {
         disabled={rating === 0}
         className="w-full bg-[var(--primary-600)] text-white py-3 rounded-lg font-medium hover:bg-[var(--primary-700)] transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed"
       >
-        Publier mon avis
+        {t("ClientReview.POST_REVIEW")}
       </button>
     </form>
   );

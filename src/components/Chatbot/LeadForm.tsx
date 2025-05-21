@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { motion } from "framer-motion";
+import { User, Mail, Phone } from "lucide-react";
 
 interface LeadFormProps {
   onSubmit: (firstName: string, email: string, phone: string) => void;
@@ -37,52 +39,78 @@ const LeadForm = ({ onSubmit }: LeadFormProps) => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
     if (validate()) {
       onSubmit(firstName, email, phone);
-      //
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="lead-form">
+    <motion.form
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.3 }}
+      onSubmit={handleSubmit}
+      className="lead-form"
+    >
       <div className="form-group">
-        <input
-          type="text"
-          value={firstName}
-          onChange={(e) => setFirstName(e.target.value)}
-          placeholder={t("chatbot.firstName")}
-          className={errors.firstName ? "error" : ""}
-        />
+        <div className="relative">
+          <User
+            size={18}
+            className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+          />
+          <input
+            type="text"
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+            placeholder={t("chatbot.firstName")}
+            className={`pl-14 ${errors.firstName ? "error" : ""}`}
+          />
+        </div>
         {errors.firstName && (
           <span className="error-message">{errors.firstName}</span>
         )}
       </div>
 
       <div className="form-group">
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder={t("chatbot.email")}
-          className={errors.email ? "error" : ""}
-        />
+        <div className="relative gap-2">
+          <Mail
+            size={18}
+            className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+          />
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder={t("chatbot.email")}
+            className={`pl-10  placeholder:pl-6 ${errors.email ? "error" : ""}`}
+          />
+        </div>
         {errors.email && <span className="error-message">{errors.email}</span>}
       </div>
 
       <div className="form-group">
-        <input
-          type="tel"
-          value={phone}
-          onChange={(e) => setPhone(e.target.value)}
-          placeholder={t("chatbot.phone")}
-        />
+        <div className="relative">
+          <Phone
+            size={18}
+            className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+          />
+          <input
+            type="tel"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+            placeholder={t("chatbot.phone")}
+            className="pl-10"
+          />
+        </div>
       </div>
 
-      <button type="submit" className="submit-button">
+      <button type="submit" className="submit-button group">
         {t("chatbot.submit")}
+        <span className="inline-block transition-transform group-hover:translate-x-1 ml-2">
+          →
+        </span>
       </button>
-    </form>
+    </motion.form>
   );
 };
 

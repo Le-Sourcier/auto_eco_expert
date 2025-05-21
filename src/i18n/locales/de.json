@@ -3,15 +3,29 @@
     "title": "Auto Eco Expert - Sparen Sie bis zu 5.000€ bei Ihrem nächsten Fahrzeug",
     "description": "Unsere KI analysiert den Markt, um das beste Autoangebot für Sie zu finden"
   },
+  "common": {
+    "backToHome": "Zurück zur Startseite",
+    "lastUpdated": "Zuletzt aktualisiert",
+    "loading": "Laden...",
+    "error": "Ein Fehler ist aufgetreten",
+    "retry": "Erneut versuchen",
+    "send": "Senden",
+    "typeMessage": "Nachricht eingeben..."
+  },
   "hero": {
     "title": "🚗 Ihr nächstes Fahrzeug zum niedrigsten Preis? Unsere KI scannt 2.152 Angebote für Sie!",
     "subtitle": "1 Minute mit unserem Assistenten = 1 kostenlose Studie, um bis zu 40% zu sparen (neu oder gebraucht)",
     "cta": "Kostenlose Analyse starten →",
     "urgency": "⚠️ Exklusives Angebot für die ersten 100 Benutzer diesen Monat reserviert",
-    "countdownPrefix": "Läuft ab in"
+    "countdownPrefix": "Läuft ab in",
+    "newBadge": "Neu",
+    "aiLabel": "Künstliche Intelligenz der neuesten Generation",
+    "mainTitle": "Revolutionieren Sie Ihre Autosuche mit unserer KI-Expertise",
+    "description": "Entdecken Sie eine neue Art, Ihr Auto zu kaufen. Unsere Technologie analysiert mehr als 2.000 Angebote in Echtzeit, um Ihnen bis zu 40% Ersparnis bei Ihrem nächsten Kauf zu garantieren."
   },
   "howItWorks": {
-    "title": "Wie es funktioniert?",
+    "title": "Wie funktioniert es?",
+    "subtitle": "Entdecken Sie, wie unsere Technologie den Autokauf revolutioniert",
     "step1": {
       "title": "🤖 KI-Analyse",
       "description": "Unser Algorithmus vergleicht 50 Kriterien: Preis, Kilometerstand, Kreditzins, Fahrzeughistorie..."
@@ -27,6 +41,7 @@
   },
   "testimonials": {
     "title": "Sie haben gespart",
+    "SUBTITLE": "Entdecken Sie das Feedback unserer zufriedenen Kunden",
     "testimonial1": {
       "text": "Dank der Clara-Studie habe ich meinen BMW 1er 2021 für 18.400€ statt 22.000€ gekauft!",
       "author": "Mark, Lille"
@@ -36,6 +51,25 @@
       "author": "Sarah, Lyon"
     }
   },
+  
+  "ClientReview": {
+      "TITLE": "Kundenbewertungen",
+      "SUBTITLE": "Teilen Sie Ihre Erfahrung",
+      "COMMENT_LABEL": "Ihr Kommentar",
+      "RATING": "Bewertung",
+      "ADD_PHOTO": "Foto hinzufügen",
+      "NAME_LABEL": "Ihr Name",
+      "ANONYMOUS": "Anonym bleiben",
+      "CHARACTERS": "Zeichen",
+      "CLICK_TO_ADD_PHOTO": "Klicken Sie, um ein Foto hinzuzufügen",
+      "POST_REVIEW": "Meine Bewertung veröffentlichen",
+      "TEAM_RESPONSE": "Antwort des Teams",
+      "DETAILS_PLACEHOLDER": "Teilen Sie Ihre Erfahrung ausführlich...",
+      "PREVIOUS": "Zurück",
+      "PAGE_INFO": "Seite {{currentPage}} von {{totalPages}}",
+      "NEXT": "Weiter",
+      "COMMENT_PLACEHOLDER": "Ihr Kommentar"
+    },
   "faq": {
   "title": "Häufige Fragen",
   "questions": [
@@ -74,39 +108,55 @@
     "financingCredit": "Kredit",
     "financingLease": "Leasing",
     "financingCash": "Barkauf",
-    "leadCapture": "Großartig! Ich habe {{count}} passende Angebote. Um Ihre vollständige Studie mit folgendem Inhalt zu erhalten:",
-    "leadBenefits": [
-      "✅ Die 3 besten Angebote (neu + gebraucht)",
-      "✅ Kredit-/Leasing-Vergleich über 5 Jahre",
-      "✅ Liste der gewarteten Fahrzeuge < 30.000 km"
-    ],
+    "leadCapture": "Großartig! Ich habe {{count}} passende Angebote. Um Ihre vollständige Studie zu erhalten:",
     "great": "👌 Perfekt!",
-    "startAnalyzing":"🔍 Ich führe eine schnelle Analyse durch, um die besten Angebote für Sie zu finden.",
-     "error":"⚠️ Ein Fehler ist aufgetreten, bitte versuchen Sie es später erneut.",
-    "confirmationText": "Bitte bestätigen Sie:",
+    "startAnalyzing": "🔍 Ich führe eine schnelle Analyse durch, um die besten Angebote für Sie zu finden.",
+    "error": "⚠️ Ein Fehler ist aufgetreten, bitte versuchen Sie es später erneut.",
+    "confirmationText": "Um Ihre personalisierte Studie zu erhalten, bestätigen Sie bitte Ihre Angaben:",
     "firstName": "Ihr Vorname*",
     "email": "E-Mail*",
     "phone": "Telefon (optional)",
     "submit": "🔓 Meine Studie freischalten",
     "thanks": "Vielen Dank! Als Bonus erhalten Sie unseren Leitfaden '10 Tipps, um beim Händler wie ein Profi zu verhandeln'",
-  "errorSubmission": "Beim Senden Ihrer Informationen ist ein Fehler aufgetreten.",
-  "tryAgain": "Bitte überprüfen Sie Ihre Angaben und versuchen Sie es erneut.",
-  "successSubmission": "🎉 Erfolgreich! Wir analysieren Ihre Angaben und senden Ihnen in Kürze Ihre personalisierte Auto-Studie per E-Mail."
-},
-"footer": {
-  "copyright": "© {{year}} Auto Éco Expert. Alle Rechte vorbehalten.",
-  "privacy": "Datenschutzrichtlinie",
-  "terms": "Nutzungsbedingungen",
-  "cookies": "Cookies",
-  "gdpr": "DSGVO",
-  "quickLinks": "Schnellzugriff",
-  "legal": "Impressum",
-  "contact": "Kontakt",
-  "dataProtection": "100% Datenschutz",
-  "description": "Unsere KI hilft Ihnen, beim Kauf Ihres nächsten Fahrzeugs zu sparen, indem sie Tausende von Angeboten nach Ihren Kriterien vergleicht.",
-  "howItWorks": "Wie es funktioniert",
-  "testimonials": "Kundenmeinungen",
-  "faq": "FAQ"
-}
+    "errorSubmission": "Beim Senden Ihrer Informationen ist ein Fehler aufgetreten.",
+    "tryAgain": "Bitte überprüfen Sie Ihre Angaben und versuchen Sie es erneut.",
+    "successSubmission": "🎉 Erfolgreich! Wir analysieren Ihre Angaben und senden Ihnen in Kürze Ihre personalisierte Auto-Studie per E-Mail.",
+    "needMoreHelp": "Möchten Sie weitere Hilfe?",
+    "yes": "Ja",
+    "no": "Nein",
+    "howElseCanIHelp": "Wie kann ich Ihnen helfen?",
+    "thankYouFeedback": "Vielen Dank für Ihr Vertrauen! Kommen Sie gerne wieder, wenn Sie weitere Fragen haben.",
+    "confirmBudget": "Budget bestätigen",
+    "CONTACT_DETAILS_SENT": "Kontaktdaten gesendet",
+    "CONFIRM_CODE": "Code bestätigen",
+    "CONFIRM_SLOT": "Zeitslot bestätigen",
+    "WELCOME_BACK": "Schön, Sie wiederzusehen, {{first_name}}! Wie kann ich Ihnen heute helfen?"
+
+  },
+  
+  "intro": {
+      "SEE_HOW_WE_CAN_HELP": "Entdecken Sie, wie wir Ihnen helfen können",
+      "SAVE_UP_TO_40_PERCENT": "Sparen Sie bis zu 40 % bei Ihrem nächsten Auto",
+      "AI_ANALYSIS_TEXT": "Unsere KI analysiert in Echtzeit über 2.000 Angebote, um Ihnen das beste Fahrzeug zum niedrigsten Preis zu finden",
+      "LEARN_HOW_IT_WORKS": "Erfahren Sie, wie es funktioniert",
+      "BROWSER_NO_VIDEO_SUPPORT": "Ihr Browser unterstützt keine Videowiedergabe."
+
+    },
+  "footer": {
+    "copyright": "© {{year}} Auto Eco Expert. Alle Rechte vorbehalten.",
+    "privacy": "Datenschutzrichtlinie",
+    "terms": "Nutzungsbedingungen",
+    "cookies": "Cookies",
+    "gdpr": "DSGVO",
+    "quickLinks": "Schnellzugriff",
+    "legal": "Impressum",
+    "contact": "Kontakt",
+    "dataProtection": "100% Datenschutz",
+    "description": "Unsere KI hilft Ihnen, beim Kauf Ihres nächsten Fahrzeugs zu sparen, indem sie Tausende von Angeboten nach Ihren Kriterien vergleicht.",
+    "howItWorks": "Wie es funktioniert",
+    "testimonials": "Kundenmeinungen",
+    "faq": "FAQ"
+  },
+"ACCOUNT_ALREADY_EXISTS": "Für diese Adresse existiert bereits ein Konto: {{email}}. Wir haben Ihnen gerade eine E-Mail mit einem 5-stelligen Code gesendet, um Ihr Konto wiederherzustellen. Dieser Code ist 15 Minuten gültig."
 
 }

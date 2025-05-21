@@ -11,7 +11,7 @@ const Footer = () => {
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
     scrollTo(id, {
-      timeout: location.pathname !== '/' ? 300 : 100 // Longer timeout if navigating from another page
+      timeout: location.pathname !== '/' ? 300 : 100
     });
   };
 

@@ -1,5 +1,6 @@
-import { useState } from 'react';
-import { Star, ThumbsUp, ChevronLeft, ChevronRight } from 'lucide-react';
+import { useState } from "react";
+import { Star, ThumbsUp, ChevronLeft, ChevronRight } from "lucide-react";
+import { t } from "i18next";
 
 interface Review {
   id: string;
@@ -45,8 +46,8 @@ const ReviewGallery = ({ reviews, onLike }: ReviewGalleryProps) => {
             onClick={() => setFilter(null)}
             className={`px-4 py-2 rounded-full ${
               filter === null
-                ? 'bg-[var(--primary-600)] text-white'
-                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                ? "bg-[var(--primary-600)] text-white"
+                : "bg-gray-100 text-gray-600 hover:bg-gray-200"
             } transition-colors`}
           >
             Tous
@@ -57,8 +58,8 @@ const ReviewGallery = ({ reviews, onLike }: ReviewGalleryProps) => {
               onClick={() => setFilter(rating)}
               className={`px-4 py-2 rounded-full ${
                 filter === rating
-                  ? 'bg-[var(--primary-600)] text-white'
-                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                  ? "bg-[var(--primary-600)] text-white"
+                  : "bg-gray-100 text-gray-600 hover:bg-gray-200"
               } transition-colors`}
             >
               {rating}★
@@ -69,7 +70,10 @@ const ReviewGallery = ({ reviews, onLike }: ReviewGalleryProps) => {
 
       <div className="space-y-6">
         {currentReviews.map((review) => (
-          <div key={review.id} className="border-b border-gray-200 pb-6 last:border-0">
+          <div
+            key={review.id}
+            className="border-b border-gray-200 pb-6 last:border-0"
+          >
             <div className="flex items-start justify-between">
               <div>
                 <div className="flex items-center gap-2 mb-2">
@@ -79,13 +83,15 @@ const ReviewGallery = ({ reviews, onLike }: ReviewGalleryProps) => {
                       size={20}
                       className={`${
                         i < review.rating
-                          ? 'text-[var(--secondary-500)] fill-[var(--secondary-500)]'
-                          : 'text-gray-300'
+                          ? "text-[var(--secondary-500)] fill-[var(--secondary-500)]"
+                          : "text-gray-300"
                       }`}
                     />
                   ))}
                 </div>
-                <p className="font-medium text-[var(--primary-800)]">{review.name}</p>
+                <p className="font-medium text-[var(--primary-800)]">
+                  {review.name}
+                </p>
                 <p className="text-sm text-gray-500">{review.date}</p>
               </div>
 
@@ -93,8 +99,8 @@ const ReviewGallery = ({ reviews, onLike }: ReviewGalleryProps) => {
                 onClick={() => onLike(review.id)}
                 className={`flex items-center gap-1 px-3 py-1 rounded-full ${
                   review.isLiked
-                    ? 'bg-[var(--primary-100)] text-[var(--primary-600)]'
-                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                    ? "bg-[var(--primary-100)] text-[var(--primary-600)]"
+                    : "bg-gray-100 text-gray-600 hover:bg-gray-200"
                 } transition-colors`}
               >
                 <ThumbsUp size={16} />
@@ -115,9 +121,11 @@ const ReviewGallery = ({ reviews, onLike }: ReviewGalleryProps) => {
             {review.adminResponse && (
               <div className="mt-4 bg-gray-50 p-4 rounded-lg">
                 <p className="font-medium text-[var(--primary-700)] mb-2">
-                  Réponse de l'équipe
+                  {t("ClientReview.TEAM_RESPONSE")}
                 </p>
-                <p className="text-[var(--primary-600)]">{review.adminResponse}</p>
+                <p className="text-[var(--primary-600)]">
+                  {review.adminResponse}
+                </p>
               </div>
             )}
           </div>
@@ -132,11 +140,12 @@ const ReviewGallery = ({ reviews, onLike }: ReviewGalleryProps) => {
             className="flex items-center gap-1 px-4 py-2 rounded-lg bg-gray-100 text-gray-600 hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
           >
             <ChevronLeft size={20} />
-            Précédent
+            {t("ClientReview.PREVIOUS")}
           </button>
 
           <span className="text-[var(--primary-600)]">
-            Page {currentPage} sur {totalPages}
+            {/* Page {currentPage} sur {totalPages} */}
+            {t("ClientReview.PAGE_INFO", { currentPage, totalPages })}
           </span>
 
           <button
@@ -144,7 +153,8 @@ const ReviewGallery = ({ reviews, onLike }: ReviewGalleryProps) => {
             disabled={currentPage === totalPages}
             className="flex items-center gap-1 px-4 py-2 rounded-lg bg-gray-100 text-gray-600 hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
           >
-            Suivant
+            {t("ClientReview.NEXT")}
+
             <ChevronRight size={20} />
           </button>
         </div>

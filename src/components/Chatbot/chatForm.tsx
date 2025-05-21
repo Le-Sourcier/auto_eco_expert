@@ -1,13 +1,12 @@
 import { Send } from "lucide-react";
 import { useState } from "react";
-import { useTranslation } from "react-i18next";
+import { motion } from "framer-motion";
 
 interface ChatFormProps {
   onSubmit: (message: string) => void;
 }
 
 const ChatForm = ({ onSubmit }: ChatFormProps) => {
-  const { t } = useTranslation();
   const [message, setMessage] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -17,26 +16,34 @@ const ChatForm = ({ onSubmit }: ChatFormProps) => {
     if (!trimmed) return;
 
     onSubmit(trimmed);
-    setMessage(""); // Clear input after sending
+    setMessage("");
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex items-center gap-2 p-2">
-      <input
-        type="text"
-        value={message}
-        onChange={(e) => setMessage(e.target.value)}
-        placeholder={"Type your message"}
-        className="flex-1 px-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
-      />
-      <button
-        type="submit"
-        disabled={!message.trim()}
-        className="bg-blue-500 hover:bg-blue-600 disabled:bg-gray-300 text-white rounded-full p-2 transition"
-      >
-        <Send size={20} />
-      </button>
-    </form>
+    <motion.form
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.3 }}
+      onSubmit={handleSubmit}
+      className="chat-form"
+    >
+      <div className="relative">
+        <input
+          type="text"
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+          placeholder="Tapez votre message..."
+          className="chat-input pr-12"
+        />
+        <button
+          type="submit"
+          disabled={!message.trim()}
+          className="absolute right-2 top-1/2 -translate-y-1/2 bg-[var(--primary-600)] text-white p-2 rounded-full transition-all hover:bg-[var(--primary-700)] disabled:opacity-50 disabled:cursor-not-allowed"
+        >
+          <Send size={18} />
+        </button>
+      </div>
+    </motion.form>
   );
 };
 

@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
+import sec from "react-secure-storage";
 import AuthContext from "../context/auth";
 import { ApiResponse, Lead, LeadRegistration, LeadWithToken } from "../types";
 
@@ -11,17 +12,15 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const [lead, setLead] = useState<Lead | null>(null);
+  const [message, setMessage] = useState<string | null>(null);
   const [accessToken, setAccessToken] = useState<string | null>(
-    () => Cookies.get("accessToken") || null
+    () => (sec.getItem("aspk") as string) || null
   );
 
   const [loading, setLoading] = useState<boolean>(true);
 
   const handleAuthSuccess = (data: LeadWithToken) => {
-    Cookies.set("accessToken", data.accessToken, {
-      secure: true,
-      sameSite: "Strict",
-    });
+    sec.setItem("aspk", data.accessToken);
     Cookies.set("refreshToken", data.refreshToken, {
       secure: true,
       sameSite: "Strict",
@@ -38,21 +37,19 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
     }
 
     try {
-      const aspk = accessToken.split("aspk_")[1];
+      const aspk = accessToken;
+      console.log("aspk", aspk);
       const res = await axios.get<ApiResponse<Lead>>(`${BASE_URL}/me`, {
         headers: {
           Authorization: `Bearer ${aspk}`,
         },
       });
       const { data } = res.data;
-      console.log("LEAD DATA: ", data);
       setLead(data);
-    } catch (error) {
+    } catch {
       setLead(null);
-      console.log("ERROR IN GETING LEAD DATA: ", error);
-
       setAccessToken(null);
-      Cookies.remove("accessToken");
+      sec.removeItem("aspk");
     } finally {
       setLoading(false);
     }
@@ -84,11 +81,13 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
       );
 
       const { error, data, message } = res.data;
+      console.log("message", message);
 
       if (error) {
         return { error: new Error(message), data: null };
       }
       handleAuthSuccess(data);
+      setMessage(message);
 
       return { error: null, data: lead };
     } catch (e) {
@@ -97,6 +96,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
         message = e.response?.data?.message;
       }
       //   toast.error(`${message}` || "Login failed");
+      setMessage(message);
 
       return { error: new Error(message || "Registration failed"), data: null };
     } finally {
@@ -108,6 +108,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
     <AuthContext.Provider
       value={{
         lead,
+        message,
         loading,
         accessToken,
         createLead,

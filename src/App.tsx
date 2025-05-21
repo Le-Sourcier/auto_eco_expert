@@ -8,7 +8,6 @@ import PrivacyPolicy from "./pages/legal/PrivacyPolicy";
 import TermsOfService from "./pages/legal/TermsOfService";
 import CookiePolicy from "./pages/legal/CookiePolicy";
 import GDPRPolicy from "./pages/legal/GDPRPolicy";
-//import ScrollToTop from './components/ScrollToTop';
 import "./i18n/i18n";
 import "./index.css";
 import { AuthProvider } from "./services/providers/authProvider";
@@ -17,18 +16,20 @@ function App() {
   const { i18n } = useTranslation();
 
   useEffect(() => {
-    const browserLang = navigator.language.split("-")[0];
+    // Language detection is now handled by i18next-browser-languagedetector
+    // This is just for additional customization if needed
+    const currentLang = i18n.language;
     const supportedLangs = ["fr", "en", "es", "de"];
-    const lang = supportedLangs.includes(browserLang) ? browserLang : "fr";
 
-    i18n.changeLanguage(lang);
+    if (!supportedLangs.includes(currentLang)) {
+      i18n.changeLanguage("fr");
+    }
   }, [i18n]);
 
   return (
     <HelmetProvider>
       <AuthProvider>
         <Router>
-          {/* <ScrollToTop /> */}
           <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route path="/merci" element={<ThankYouPage />} />

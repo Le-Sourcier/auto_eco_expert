@@ -49,9 +49,9 @@ const Header = () => {
 
   return (
     <header className={headerClasses} role="banner">
-      <div className="container-custom">
+      <div className="container-custom ">
         <nav
-          className="flex items-center justify-between py-4"
+          className="flex items-center justify-between py-4 "
           role="navigation"
         >
           {/* Logo */}
@@ -107,8 +107,8 @@ const Header = () => {
             className="md:hidden bg-white border-t border-gray-200"
             role="menu"
           >
-            <div className="container-custom py-4">
-              <div className="flex flex-col gap-4">
+            <div className="container-custom py-4 ">
+              <div className="flex flex-col gap-4 ">
                 {navItems.map((item) => (
                   <a
                     key={item.id}

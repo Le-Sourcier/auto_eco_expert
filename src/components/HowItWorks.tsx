@@ -47,7 +47,6 @@ const HowItWorks = () => {
 
   return (
     <section id="comment-ca-marche" ref={ref} className="py-24 px-4 bg-white relative overflow-hidden">
-      {/* Background Elements */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-0 w-64 h-64 bg-[var(--primary-50)] rounded-full -translate-x-1/2 -translate-y-1/2" />
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-[var(--secondary-50)] rounded-full translate-x-1/3 translate-y-1/3" />
@@ -60,7 +59,7 @@ const HowItWorks = () => {
           </h2>
           <div className="w-24 h-1 bg-[var(--secondary-500)] mx-auto mb-8" />
           <p className="text-xl text-[var(--primary-600)] max-w-2xl mx-auto">
-            Découvrez comment notre technologie révolutionne l'achat automobile
+            {t('howItWorks.subtitle')}
           </p>
         </div>
         

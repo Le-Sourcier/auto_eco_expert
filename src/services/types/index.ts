@@ -27,8 +27,6 @@ export interface LeadRegistration {
   budget: string;
   car_type: string;
   financing_type: string;
-  car_brand_id?: string;
-  car_model_id?: string;
   source?: string;
   language?: string;
 }
@@ -42,6 +40,7 @@ export interface LeadsState {
   lead: Lead | null;
   loading: boolean;
   accessToken: string | null;
+  message?: string | null;
   createLead: ({
     first_name,
     email,
@@ -49,8 +48,6 @@ export interface LeadsState {
     budget,
     car_type,
     financing_type,
-    car_brand_id,
-    car_model_id,
     source,
     language,
   }: LeadRegistration) => Promise<{ error: Error | null; data: Lead | null }>;
@@ -62,14 +59,22 @@ export interface ChatMessage {
   content: string;
   isBot: boolean;
   options?: string[];
-  type?: "text" | "buttons" | "input";
+  type?:
+    | "text"
+    | "buttons"
+    | "input"
+    | "success"
+    | "error"
+    | "contact"
+    | "recovery";
 }
 export interface ChatState {
   message: ChatMessage[];
   isLoading: boolean;
   error: string | null;
   getMessage: (id: string) => Promise<ChatMessage[]>;
-  sendMessage: ({ content, type }: ChatMessage) => Promise<ChatMessage[]>;
+  // Avant : sendMessage: ({ content, type }: ChatMessage) => Promise<ChatMessage[]>;
+  sendMessage: (msg: ChatMessage) => Promise<ChatMessage>;
 }
 
 // ***************************** WEBHOOk RESPONSE ***************************//

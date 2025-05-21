@@ -43,7 +43,7 @@ const Hero = ({ onStartChat }: HeroProps) => {
       if (timeLeft > 0) {
         timeLeft--;
       } else {
-        timeLeft = 7200;
+        timeLeft = 7200; // Reset to 2 hours
       }
     };
 
@@ -63,7 +63,6 @@ const Hero = ({ onStartChat }: HeroProps) => {
 
   return (
     <section className="relative min-h-screen bg-gradient-to-br from-[var(--primary-700)] to-[var(--primary-900)] text-white pt-24 pb-16 px-4 flex items-center overflow-hidden">
-      {/* Background Carousel */}
       <div className="absolute inset-0 overflow-hidden">
         <Swiper
           modules={[Autoplay, EffectFade]}
@@ -78,7 +77,7 @@ const Hero = ({ onStartChat }: HeroProps) => {
           {carImages.map((image, index) => (
             <SwiperSlide key={index}>
               <div
-                className="w-full h-full bg-cover bg-center"
+                className="w-full h-full bg-cover bg-center "
                 style={{
                   backgroundImage: `url(${image})`,
                   opacity: 0.15,
@@ -88,36 +87,47 @@ const Hero = ({ onStartChat }: HeroProps) => {
           ))}
         </Swiper>
 
-        {/* Gradient Overlays */}
         <div className="absolute inset-0 bg-gradient-to-r from-[var(--primary-900)] via-transparent to-transparent opacity-90" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[var(--primary-900)] opacity-90" />
       </div>
 
       <div className="container-custom relative z-10">
         <div className="max-w-3xl">
-          <motion.h1
-            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
+          <motion.div
+            className="inline-flex items-center bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            {t("hero.title")}
+            <span className="text-[var(--secondary-500)] font-semibold mr-2">
+              {t("hero.newBadge")}
+            </span>
+            <span className="text-white/80">{t("hero.aiLabel")}</span>
+          </motion.div>
+
+          <motion.h1
+            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            {t("hero.mainTitle")}
           </motion.h1>
 
           <motion.p
             className="text-xl md:text-2xl mb-8 text-gray-100 leading-relaxed"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
           >
-            {t("hero.subtitle")}
+            {t("hero.description")}
           </motion.p>
 
           <motion.div
             className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 mb-8 inline-block border border-white/20"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
+            transition={{ duration: 0.5, delay: 0.6 }}
           >
             <p className="text-lg md:text-xl font-medium flex items-center">
               <span className="animate-pulse text-[var(--secondary-400)] mr-3">
@@ -147,14 +157,17 @@ const Hero = ({ onStartChat }: HeroProps) => {
 
           <motion.button
             onClick={onStartChat}
-            className="btn btn-primary text-lg md:text-xl px-8 py-4"
+            className="btn btn-primary text-lg md:text-xl px-8 py-4 group"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.6 }}
+            transition={{ duration: 0.5, delay: 0.8 }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
             {t("hero.cta")}
+            <span className="inline-block transition-transform group-hover:translate-x-1 ml-2">
+              →
+            </span>
           </motion.button>
         </div>
       </div>
