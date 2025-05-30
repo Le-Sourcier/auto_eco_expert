@@ -15,7 +15,7 @@
   "hero": {
     "title": "🚗 Your next vehicle at the lowest price? Our AI scans 2,152 offers for you!",
     "subtitle": "1 minute with our assistant = 1 free study to save up to 40% (new or used)",
-    "cta": "Start free analysis →",
+    "cta": "Start free analysis",
     "urgency": "⚠️ Exclusive offer reserved for the first 100 users this month",
     "countdownPrefix": "Expires in",
     "newBadge": "New",
@@ -111,6 +111,9 @@
     "financingCash": "Cash purchase",
     "leadCapture": "Great! I have {{count}} matching offers. To receive your complete study with:",
     "great": "👌 Perfect!",
+    "getRestart":"Perfect 😊, let's pick it up from here.",
+    "noOfferMatch":"No offer matches your criteria 😕. Would you like to try again?",
+    "inviteToRetryWithInfo":"Feel free to share your info 📩 to retry the analysis or get notified when a match is found.",
     "startAnalyzing": "🔍 I'm running a quick analysis to uncover the best deals for you.",
     "error": "⚠️ An error occurred, please try again later.",
     "confirmationText": "To receive your personalized study, please confirm your details:",
@@ -131,7 +134,10 @@
     "CONTACT_DETAILS_SENT": "Contact details sent",
     "CONFIRM_CODE": "Confirm code",
     "CONFIRM_SLOT": "Confirm slot",
-    "WELCOME_BACK": "Great to see you again, {{first_name}}! How can I help you today?"
+    "WELCOME_BACK": "Great to see you again, {{first_name}}! How can I help you today?",
+    "previewMessage": "{{model}} – {{motor}}, {{fuel}}, {{gearbox}} gearbox, {{km}} km. €{{priceCash}} {{discount}}",
+    "discountText": "-{{percent}}% off",
+    "monthlyFrom": "💳 from {{amount}} €/mo."
 
   },
 
@@ -158,6 +164,112 @@
     "testimonials": "Testimonials",
     "faq": "FAQ"
   },
+  
+  "privacy": {
+    "meta": {
+      "title": "Privacy Policy",
+      "description": "Learn how we protect your personal data"
+    },
+    "title": "Privacy Policy",
+    "lastUpdated": "Last updated: February 15, 2024",
+    "sections": [
+      {
+        "title": "Introduction",
+        "content": "At Auto Éco Expert, we place the utmost importance on protecting your personal data. This privacy policy explains how we collect, use, and protect your personal information when you use our service."
+      },
+      {
+        "title": "Data Collected",
+        "content": "We collect the following information:\n- Personal information (name, email, phone)\n- Vehicle preferences\n- Browsing data on our site\n- Technical information (IP address, browser type)"
+      },
+      {
+        "title": "Use of Data",
+        "content": "Your data is used to:\n- Personalize your vehicle search\n- Send you relevant offers\n- Improve our services\n- Comply with our legal obligations"
+      },
+      {
+        "title": "Data Protection",
+        "content": "We implement technical and organizational security measures to protect your data from unauthorized access, modification, disclosure, or destruction."
+      },
+      {
+        "title": "Your Rights",
+        "content": "You have the following rights:\n- Access to your data\n- Correction of inaccurate data\n- Deletion of your data\n- Objection to processing\n- Data portability"
+      }
+    ]
+  },
+  "terms": {
+    "meta": {
+      "title": "Terms of Use",
+      "description": "View our general terms of use"
+    },
+    "title": "Terms of Use",
+    "lastUpdated": "Last updated: February 15, 2024",
+    "sections": [
+      {
+        "title": "Acceptance of Terms",
+        "content": "By using our service, you agree to be bound by these terms. If you do not agree to these terms, please do not use our service."
+      },
+      {
+        "title": "Service Description",
+        "content": "Auto Éco Expert is a platform for comparing automotive offers. We use artificial intelligence to help you find the best deals."
+      },
+      {
+        "title": "Responsibilities",
+        "content": "Auto Éco Expert acts as an intermediary and cannot be held responsible for final transactions between you and sellers. We strive to provide accurate information but do not guarantee complete accuracy."
+      },
+      {
+        "title": "Intellectual Property",
+        "content": "All content on our site (texts, images, logos) is protected by copyright and remains our exclusive property."
+      }
+    ]
+  },
+  "cookies": {
+    "meta": {
+      "title": "Cookie Policy",
+      "description": "Understand how cookies are used on our site"
+    },
+    "title": "Cookie Policy",
+    "lastUpdated": "Last updated: February 15, 2024",
+    "sections": [
+      {
+        "title": "What is a cookie?",
+        "content": "Cookies are small text files stored on your device that allow us to enhance your experience on our site."
+      },
+      {
+        "title": "Types of Cookies Used",
+        "content": "We use the following types of cookies:\n- Essential cookies: necessary for the functioning of the site\n- Analytics cookies: to understand how the site is used\n- Preference cookies: to remember your choices\n- Marketing cookies: to personalize advertisements"
+      },
+      {
+        "title": "Managing Cookies",
+        "content": "You can control and/or delete cookies as you wish. You can delete all cookies already on your device and set most browsers to block them."
+      }
+    ]
+  },
+  "gdpr": {
+    "meta": {
+      "title": "GDPR Compliance",
+      "description": "Our commitment to data protection under GDPR"
+    },
+    "title": "GDPR Compliance",
+    "lastUpdated": "Last updated: February 15, 2024",
+    "sections": [
+      {
+        "title": "Legal Basis",
+        "content": "We process your personal data on the following legal bases:\n- Your consent\n- Execution of a contract\n- Our legal obligations\n- Our legitimate interests"
+      },
+      {
+        "title": "Your GDPR Rights",
+        "content": "In accordance with the GDPR, you have the following rights:\n- Right of access\n- Right to rectification\n- Right to erasure\n- Right to restriction of processing\n- Right to data portability\n- Right to object"
+      },
+      {
+        "title": "Data Transfers",
+        "content": "Your data is hosted exclusively within the European Union. We do not transfer your personal data outside the EU without appropriate safeguards."
+      },
+      {
+        "title": "Data Protection Officer",
+        "content": "For any questions regarding the processing of your personal data, you can contact our DPO at: dpo@auto-eco-expert.fr"
+      }
+    ]
+  },
+
   "ACCOUNT_ALREADY_EXISTS": "An account already exists for this address: {{email}}. We have just sent you an email with a 5-digit code to recover your account. This code is valid for 15 minutes."
 
 }

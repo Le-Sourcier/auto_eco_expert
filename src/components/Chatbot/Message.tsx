@@ -126,7 +126,7 @@ const Message = ({ message, onButtonClick, onInputSubmit }: MessageProps) => {
               type="submit"
               className="w-full bg-gradient-to-r from-[var(--secondary-500)] to-[var(--secondary-600)] text-[var(--primary-800)] font-medium py-3 px-4 rounded-lg hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5"
             >
-              Confirmer ce budget
+              {t("chatbot.confirmBudget")}
             </button>
           </div>
         </form>

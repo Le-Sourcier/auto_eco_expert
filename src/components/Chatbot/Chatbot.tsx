@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import Cookies from "js-cookie";
 import { motion, AnimatePresence } from "framer-motion";
 import { MessageSquare, X } from "lucide-react";
 import Message from "./Message";
@@ -23,7 +24,7 @@ const Chatbot = ({ onOpen }: { onOpen?: () => void }) => {
   const [showLeadForm, setShowLeadForm] = useState(false);
   const [showChatInput, setShowChatInput] = useState(false);
   const { lead, createLead, message: msg } = useAuth();
-  const { getMessage, sendMessage } = useChatStore();
+  const { isLoading, getMessage, sendMessage, analyze } = useChatStore();
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
@@ -134,6 +135,34 @@ const Chatbot = ({ onOpen }: { onOpen?: () => void }) => {
     }, 700);
   };
 
+  const goToBudgetStep = () => {
+    setCurrentStep(1);
+    setBudget("");
+    addBotMessage(t("chatbot.budget"), "input");
+  };
+
+  const handleRetrySearch = async (value: string) => {
+    addUserMessage(value);
+    const input = value.trim().toLowerCase();
+
+    const isYes = ["yes", "oui", "ja", "sí"].includes(input);
+    if (isYes) {
+      setTimeout(() => {
+        addBotMessage(t("chatbot.getRestart"));
+        setTimeout(goToBudgetStep, 800);
+      }, 700);
+      setTimeout(() => setShowLeadForm(false), 700);
+    } else {
+      const _ = ["chatbot.thankYouFeedback", "chatbot.inviteToRetryWithInfo"];
+      _.forEach((itm, index) => {
+        setTimeout(() => {
+          addBotMessage(t(itm));
+          setTimeout(() => setShowLeadForm(true), 700);
+        }, 300 + 500 / index);
+      });
+    }
+  };
+
   const handleBudgetSubmit = (budgetValue: string) => {
     addUserMessage(`${budgetValue}€`);
     setBudget(budgetValue);
@@ -215,6 +244,16 @@ const Chatbot = ({ onOpen }: { onOpen?: () => void }) => {
     return key;
   };
 
+  const carTypeOptionKey = (input: string): "new" | "used" => {
+    if (input.includes("50%")) {
+      return "used";
+    }
+    if (input.includes("30%")) {
+      return "new";
+    }
+    return "new"; // Valeur par défaut
+  };
+
   const handleFinancingSelect = (option: string) => {
     addUserMessage(option);
     setFinancing(option);
@@ -225,28 +264,71 @@ const Chatbot = ({ onOpen }: { onOpen?: () => void }) => {
     setTimeout(() => {
       addBotMessage(t("chatbot.startAnalyzing"), "text");
 
+      if (isLoading) {
+        setIsTyping(true);
+      }
       // Simulated analysis results
-      setTimeout(() => {
+      setTimeout(async () => {
+        const res = await analyze({
+          car_type: carTypeOptionKey(carType),
+          budget: budget,
+          financing_type: finacialOptionKey(financing),
+        });
         const recommendations = [
-          "✨ Une Peugeot 208 d'occasion avec seulement 25 000 km",
-          "🌟 Une Renault Clio neuve avec une remise de 15%",
-          "💫 Une Citroën C3 récente sous garantie",
+          ...res.data,
+          // "✨ Une Peugeot 208 d'occasion avec seulement 25 000 km",
+          // "🌟 Une Renault Clio neuve avec une remise de 15%",
+          // "💫 Une Citroën C3 récente sous garantie",
         ];
 
-        addBotMessage(
-          t("chatbot.leadCapture", { count: recommendations.length })
-        );
+        if (recommendations.length > 0) {
+          // addBotMessage(
+          //   t("chatbot.leadCapture", { count: recommendations.length })
+          // );
 
-        recommendations.forEach((rec, index) => {
+          addBotMessage(res.message.replaceAll("*", ""));
+
+          recommendations.slice(0, 5).forEach((sgt, index) => {
+            setTimeout(() => {
+              // addBotMessage(rec.model, "text");
+
+              const message = t("chatbot.previewMessage", {
+                // make: sgt.make,
+                model: sgt.model,
+                motor: sgt.motor,
+                fuel: sgt.fuel,
+                gearbox: sgt.gearbox,
+                km: sgt.km.toLocaleString(),
+                priceCash: sgt.priceCash.toLocaleString(),
+                discount: sgt.discountPct
+                  ? t("chatbot.discountText", { percent: sgt.discountPct })
+                  : "",
+                // year: sgt.year,
+                // // age: sgt.age,
+                // monthly: sgt.priceFrom
+                //   ? " – " +
+                //     t("chatbot.monthlyFrom", {
+                //       amount: sgt.priceFrom.toLocaleString(),
+                //     })
+                //   : "",
+              });
+              addBotMessage(message, "text");
+            }, 700 * (index + 1));
+          });
+
           setTimeout(() => {
-            addBotMessage(rec, "text");
-          }, 700 * (index + 1));
-        });
-
-        setTimeout(() => {
-          addBotMessage(t("chatbot.confirmationText"), "text");
-          setShowLeadForm(true);
-        }, 700 * (recommendations.length + 1));
+            addBotMessage(t("chatbot.confirmationText"), "text");
+            setShowLeadForm(true);
+          }, 700 * (recommendations.length + 1));
+        } else {
+          setTimeout(() => {
+            addBotMessage(t("chatbot.noOfferMatch"), "buttons", [
+              t("chatbot.yes"),
+              t("chatbot.no"),
+            ]);
+            setCurrentStep(4);
+          }, 1000);
+        }
       }, 2000);
     }, 700);
   };
@@ -262,6 +344,9 @@ const Chatbot = ({ onOpen }: { onOpen?: () => void }) => {
       addUserMessage(t("chatbot.CONTACT_DETAILS_SENT"));
       setIsTyping(true);
 
+      const savedLang =
+        Cookies.get("i18next") || localStorage.getItem("i18next");
+
       const res = await createLead({
         first_name: firstName,
         email,
@@ -269,7 +354,7 @@ const Chatbot = ({ onOpen }: { onOpen?: () => void }) => {
         car_type: carType,
         budget,
         financing_type: finacialOptionKey(financing),
-        language: "fr",
+        language: savedLang,
       });
 
       if (res.error) {
@@ -293,14 +378,6 @@ const Chatbot = ({ onOpen }: { onOpen?: () => void }) => {
         addBotMessage(t("chatbot.thanks"), "success");
         setTimeout(() => {
           addBotMessage(t("chatbot.successSubmission"), "success");
-          // setTimeout(() => {
-          //   addBotMessage(
-          //     "Souhaitez-vous de l'aide pour autre chose ?",
-          //     "buttons",
-          //     ["Oui", "Non"]
-          //   );
-          //   setShowChatInput(true);
-          // }, 1000);
         }, 1000);
       }
     } catch (error) {
@@ -365,13 +442,22 @@ const Chatbot = ({ onOpen }: { onOpen?: () => void }) => {
                         ? handleCarTypeSelect
                         : currentStep === 2
                         ? handleFinancingSelect
+                        : currentStep === 4
+                        ? handleRetrySearch
                         : // : currentStep === 4
                           // ? handleOtherHelp
                           () => {}
                     }
-                    onInputSubmit={
-                      currentStep === 1 ? handleBudgetSubmit : () => {}
-                    }
+                    onInputSubmit={(value) => {
+                      switch (currentStep) {
+                        case 1:
+                          return handleBudgetSubmit(value);
+                        case 4:
+                          return handleRetrySearch(value);
+                        default:
+                          return;
+                      }
+                    }}
                   />
                 </>
               ))}

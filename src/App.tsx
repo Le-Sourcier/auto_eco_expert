@@ -11,18 +11,14 @@ import GDPRPolicy from "./pages/legal/GDPRPolicy";
 import "./i18n/i18n";
 import "./index.css";
 import { AuthProvider } from "./services/providers/authProvider";
+import Cookies from "js-cookie";
 
 function App() {
   const { i18n } = useTranslation();
-
   useEffect(() => {
-    // Language detection is now handled by i18next-browser-languagedetector
-    // This is just for additional customization if needed
-    const currentLang = i18n.language;
-    const supportedLangs = ["fr", "en", "es", "de"];
-
-    if (!supportedLangs.includes(currentLang)) {
-      i18n.changeLanguage("fr");
+    const savedLang = Cookies.get("i18next") || localStorage.getItem("i18next");
+    if (savedLang && i18n.language !== savedLang) {
+      i18n.changeLanguage(savedLang);
     }
   }, [i18n]);
 

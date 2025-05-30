@@ -1,6 +1,7 @@
 import { Send } from "lucide-react";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { t } from "i18next";
 
 interface ChatFormProps {
   onSubmit: (message: string) => void;
@@ -32,7 +33,7 @@ const ChatForm = ({ onSubmit }: ChatFormProps) => {
           type="text"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
-          placeholder="Tapez votre message..."
+          placeholder={t("common.typeMessage")}
           className="chat-input pr-12"
         />
         <button

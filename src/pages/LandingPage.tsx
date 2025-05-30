@@ -99,6 +99,7 @@ const LandingPage = () => {
 
       <section
         id="avis"
+        hidden
         className="overflow-x-hidden py-24 px-4 bg-gradient-to-br from-gray-50 to-white"
       >
         <div className="container-custom">

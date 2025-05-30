@@ -15,7 +15,7 @@
   "hero": {
     "title": "🚗 ¿Su próximo vehículo al precio más bajo? ¡Nuestra IA escanea 2.152 ofertas para usted!",
     "subtitle": "1 minuto con nuestro asistente = 1 estudio gratuito para ahorrar hasta un 40% (nuevo o usado)",
-    "cta": "Iniciar análisis gratuito →",
+    "cta": "Iniciar análisis gratuito",
     "urgency": "⚠️ Oferta exclusiva reservada a los primeros 100 usuarios este mes",
     "countdownPrefix": "Expira en",
     "newBadge": "Nuevo",
@@ -111,6 +111,9 @@
     "financingCash": "Compra al contado",
     "leadCapture": "¡Genial! Tengo {{count}} ofertas coincidentes. Para recibir su estudio completo con:",
     "great": "👌 ¡Perfecto!",
+    "getRestart":"Perfecto 😊, retomemos desde aquí.",
+    "noOfferMatch":"Ninguna oferta coincide con tus criterios 😕. ¿Quieres intentarlo de nuevo?",
+    "inviteToRetryWithInfo":"No dude en enviarnos su información 📩 para un nuevo análisis o ser notificado si hay una oferta adecuada.",
     "startAnalyzing": "🔍 Realizo un análisis rápido para encontrar las mejores ofertas para ti.",
     "error": "⚠️ Se ha producido un error, por favor inténtelo de nuevo más tarde.",
     "confirmationText": "Para recibir su estudio personalizado, confirme sus datos:",
@@ -131,7 +134,10 @@
     "CONTACT_DETAILS_SENT": "Datos de contacto enviados",
     "CONFIRM_CODE": "Confirmar código",
     "CONFIRM_SLOT": "Confirmar franja",
-    "WELCOME_BACK": "Encantado de verte de nuevo, {{first_name}}! ¿Cómo puedo ayudarte hoy?"
+    "WELCOME_BACK": "Encantado de verte de nuevo, {{first_name}}! ¿Cómo puedo ayudarte hoy?",
+    "previewMessage": "{{model}} – {{motor}}, {{fuel}}, caja {{gearbox}}, {{km}} km. {{priceCash}} € {{discount}}",
+    "discountText": "-{{percent}}% de descuento",
+    "monthlyFrom": "💳 desde {{amount}} €/mes"
 
   },
   "intro": {
@@ -157,6 +163,110 @@
     "howItWorks": "Cómo funciona",
     "testimonials": "Testimonios",
     "faq": "Preguntas frecuentes"
+  },
+  "privacy": {
+    "meta": {
+      "title": "Política de Privacidad",
+      "description": "Descubre cómo protegemos tus datos personales"
+    },
+    "title": "Política de Privacidad",
+    "lastUpdated": "Última actualización: 15 de febrero de 2024",
+    "sections": [
+      {
+        "title": "Introducción",
+        "content": "En Auto Éco Expert, damos la máxima importancia a la protección de tus datos personales. Esta política de privacidad explica cómo recopilamos, utilizamos y protegemos tu información personal cuando utilizas nuestro servicio."
+      },
+      {
+        "title": "Datos recopilados",
+        "content": "Recopilamos la siguiente información:\n- Información personal (nombre, correo electrónico, teléfono)\n- Preferencias de vehículos\n- Datos de navegación en nuestro sitio\n- Información técnica (dirección IP, tipo de navegador)"
+      },
+      {
+        "title": "Uso de los datos",
+        "content": "Tus datos se utilizan para:\n- Personalizar tu búsqueda de vehículos\n- Enviarte ofertas relevantes\n- Mejorar nuestros servicios\n- Cumplir con nuestras obligaciones legales"
+      },
+      {
+        "title": "Protección de datos",
+        "content": "Implementamos medidas de seguridad técnicas y organizativas para proteger tus datos contra el acceso no autorizado, la modificación, divulgación o destrucción."
+      },
+      {
+        "title": "Tus derechos",
+        "content": "Tienes los siguientes derechos:\n- Acceder a tus datos\n- Rectificar datos inexactos\n- Eliminar tus datos\n- Oponerte al tratamiento\n- Portabilidad de los datos"
+      }
+    ]
+  },
+  "terms": {
+    "meta": {
+      "title": "Términos de Uso",
+      "description": "Consulta nuestras condiciones generales de uso"
+    },
+    "title": "Términos de Uso",
+    "lastUpdated": "Última actualización: 15 de febrero de 2024",
+    "sections": [
+      {
+        "title": "Aceptación de los términos",
+        "content": "Al utilizar nuestro servicio, aceptas estar sujeto a estos términos. Si no estás de acuerdo, por favor no utilices nuestro servicio."
+      },
+      {
+        "title": "Descripción del servicio",
+        "content": "Auto Éco Expert es una plataforma de comparación de ofertas automotrices. Utilizamos inteligencia artificial para ayudarte a encontrar las mejores ofertas."
+      },
+      {
+        "title": "Responsabilidades",
+        "content": "Auto Éco Expert actúa como intermediario y no se hace responsable de las transacciones finales entre tú y los vendedores. Nos esforzamos por proporcionar información precisa, pero no garantizamos su exactitud total."
+      },
+      {
+        "title": "Propiedad intelectual",
+        "content": "Todo el contenido de nuestro sitio (textos, imágenes, logotipos) está protegido por derechos de autor y sigue siendo nuestra propiedad exclusiva."
+      }
+    ]
+  },
+  "cookies": {
+    "meta": {
+      "title": "Política de Cookies",
+      "description": "Entiende el uso de cookies en nuestro sitio"
+    },
+    "title": "Política de Cookies",
+    "lastUpdated": "Última actualización: 15 de febrero de 2024",
+    "sections": [
+      {
+        "title": "¿Qué es una cookie?",
+        "content": "Las cookies son pequeños archivos de texto almacenados en tu dispositivo que nos permiten mejorar tu experiencia en nuestro sitio."
+      },
+      {
+        "title": "Tipos de cookies utilizadas",
+        "content": "Utilizamos los siguientes tipos de cookies:\n- Cookies esenciales: necesarias para el funcionamiento del sitio\n- Cookies analíticas: para entender el uso del sitio\n- Cookies de preferencia: para recordar tus elecciones\n- Cookies de marketing: para personalizar la publicidad"
+      },
+      {
+        "title": "Gestión de cookies",
+        "content": "Puedes controlar y/o eliminar las cookies como desees. Puedes eliminar todas las cookies de tu dispositivo y configurar la mayoría de los navegadores para que las bloqueen."
+      }
+    ]
+  },
+  "gdpr": {
+    "meta": {
+      "title": "Cumplimiento del RGPD",
+      "description": "Nuestro compromiso con la protección de tus datos según el RGPD"
+    },
+    "title": "Cumplimiento del RGPD",
+    "lastUpdated": "Última actualización: 15 de febrero de 2024",
+    "sections": [
+      {
+        "title": "Base legal",
+        "content": "Tratamos tus datos personales sobre las siguientes bases legales:\n- Tu consentimiento\n- Ejecución de un contrato\n- Nuestras obligaciones legales\n- Nuestros intereses legítimos"
+      },
+      {
+        "title": "Tus derechos RGPD",
+        "content": "De acuerdo con el RGPD, tienes los siguientes derechos:\n- Derecho de acceso\n- Derecho de rectificación\n- Derecho de supresión\n- Derecho a la limitación del tratamiento\n- Derecho a la portabilidad de los datos\n- Derecho de oposición"
+      },
+      {
+        "title": "Transferencia de datos",
+        "content": "Tus datos se alojan exclusivamente en la Unión Europea. No transferimos tus datos personales fuera de la UE sin garantías adecuadas."
+      },
+      {
+        "title": "Delegado de protección de datos",
+        "content": "Para cualquier pregunta sobre el tratamiento de tus datos personales, puedes contactar con nuestro DPO en: dpo@auto-eco-expert.fr"
+      }
+    ]
   },
   "ACCOUNT_ALREADY_EXISTS": "Ya existe una cuenta para esta dirección: {{email}}. Acabamos de enviarle un correo electrónico con un código de 5 dígitos para recuperar su cuenta. Este código es válido durante 15 minutos."
 

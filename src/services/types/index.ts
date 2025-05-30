@@ -28,7 +28,7 @@ export interface LeadRegistration {
   car_type: string;
   financing_type: string;
   source?: string;
-  language?: string;
+  language?: string | null;
 }
 
 export interface LeadWithToken extends Lead {
@@ -68,13 +68,35 @@ export interface ChatMessage {
     | "contact"
     | "recovery";
 }
+export interface AnalyzeReq {
+  car_type: string;
+  financing_type: string;
+  budget: string;
+}
+export interface AnalyzeResponse {
+  id: string;
+  make: string;
+  model: string;
+  motor: string;
+  year: string;
+  km: string;
+  fuel: string;
+  gearbox: string;
+  discountPct: string;
+  priceCash: string;
+  priceFrom: string;
+  img: string;
+  age: string;
+}
 export interface ChatState {
   message: ChatMessage[];
   isLoading: boolean;
   error: string | null;
+  data: AnalyzeResponse[];
   getMessage: (id: string) => Promise<ChatMessage[]>;
   // Avant : sendMessage: ({ content, type }: ChatMessage) => Promise<ChatMessage[]>;
   sendMessage: (msg: ChatMessage) => Promise<ChatMessage>;
+  analyze: (req: AnalyzeReq) => Promise<ApiResponse<AnalyzeResponse[]>>;
 }
 
 // ***************************** WEBHOOk RESPONSE ***************************//
