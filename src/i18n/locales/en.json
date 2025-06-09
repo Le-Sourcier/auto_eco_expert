@@ -149,6 +149,31 @@
       "BROWSER_NO_VIDEO_SUPPORT": "Your browser does not support video playback."
 
   },
+  "infoPartner":{
+    "meta": {
+      "title": "Partners and Data Protection",
+      "description": "Learn about our personal data policy, our partners list, and how to exercise your rights under French data protection law."
+    },
+  "hero": {
+    "title": "Use of Collected Data and Our Partners",
+    "intro": "This Personal Data Protection Policy aims to inform you about the processing of your personal data while browsing the website, the collection of your data on our different sites, and to provide you with a list of the partners and advertisers we work with."
+  },
+  "main_text": {
+    "mission":"One of the missions of jechoisimavoiture is to allow registered users to receive the best web deals via email: promotional offers and discounts, contest participation offers, and new site announcements.",
+    "data_usage_warning": "If you use partner site services and choose to share your personal data with them, please note that the collection and use of your data by these sites are subject to their own data processing policies.",
+    "responsibility_warning":"We are not responsible for how partner sites use personal data.",
+    "legal_notice": "In accordance with the amended Law of January 6, 1978, on Information Technology, Data Files, and Civil Liberties (the \"Data Protection Law\"), personal data processing from our sites is declared to the French Data Protection Authority (CNIL)."
+  },
+  "controller_section": {
+    "title":"Who is responsible for processing your personal data?",
+    "description":"The collected data is transmitted to the companies listed below and used by them for commercial prospecting via SMS, MMS, phone, email, and mail. The data is stored for 3 years from collection or last unresponsive contact. You have the right to access, correct, restrict, object to, delete, and port certain personal data. You may exercise your rights by contacting the email addresses listed below and consult each company’s website for full processing conditions."
+  },
+    "contact":"If you wish to send us feedback, have any questions or concerns, or want to exercise your rights related to your personal data, simply use our form or contact us at {{email}}",
+  "labels": {
+    "company":"Company",
+    "privacy_policy":"Privacy Policy"
+  }
+  },
   "footer": {
     "copyright": "© {{year}} Auto Eco Expert. All rights reserved.",
     "privacy": "Privacy Policy",
@@ -162,7 +187,8 @@
     "description": "Our AI helps you save on your next vehicle by comparing thousands of offers based on your criteria.",
     "howItWorks": "How it works",
     "testimonials": "Testimonials",
-    "faq": "FAQ"
+    "faq": "FAQ",
+    "partners_privacy":"Partners Privacy"
   },
   
   "privacy": {
@@ -270,6 +296,13 @@
     ]
   },
 
-  "ACCOUNT_ALREADY_EXISTS": "An account already exists for this address: {{email}}. We have just sent you an email with a 5-digit code to recover your account. This code is valid for 15 minutes."
-
+   "notfound": {
+    "meta": {
+      "title": "Page not found",
+      "description": "The page you are looking for does not exist or has been moved."
+    },
+    "title": "Page not found",
+    "message": "Sorry, the page you are looking for does not exist or has been moved.",
+    "back_home": "Back to home"
+  }
 }

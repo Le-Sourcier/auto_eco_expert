@@ -147,6 +147,31 @@
       "BROWSER_NO_VIDEO_SUPPORT": "Votre navigateur ne prend pas en charge la lecture vidéo."
 
     },
+  "infoPartner": {
+    "meta": {
+      "title": "Partenaires et protection des données",
+      "description": "Découvrez notre politique de traitement des données personnelles, la liste de nos partenaires et comment exercer vos droits selon la loi Informatique et Libertés."
+    },
+    "hero": {
+      "title": "Utilisation des données recueillies et de nos partenaires",
+      "intro": "Cette Politique de Protection des Données Personnelles a pour objectif de vous informer du traitement de vos données personnelles lors de votre navigation sur le site web, de la collecte de vos données sur nos différents sites, et de vous communiquer la liste des partenaires et annonceurs avec lesquels nous travaillons."
+    },
+    "main_text": {
+      "mission": "L’une des missions de jechoisimavoiture est de permettre aux utilisateurs inscrits de recevoir les bons plans du web par email : offres promotionnelles, réductions, propositions de participation à des concours, et annonces de nouveaux sites.",
+      "data_usage_warning": "Si vous utilisez les services de sites partenaires et choisissez de leur communiquer vos données personnelles, veuillez noter que la collecte et l’utilisation de vos données par ces sites sont soumises à leurs propres politiques de traitement des données.",
+      "responsibility_warning": "Nous ne sommes pas responsables de la manière dont les sites partenaires utilisent les données personnelles.",
+      "legal_notice": "Conformément à la loi modifiée du 6 janvier 1978 relative à l'informatique, aux fichiers et aux libertés (la \"Loi Informatique et Libertés\"), les traitements de données personnelles réalisés à partir de nos sites sont déclarés à la Commission nationale de l'informatique et des libertés (CNIL)."
+    },
+    "controller_section": {
+      "title": "Qui est responsable du traitement de vos données personnelles ?",
+      "description": "Les données collectées sont transmises aux sociétés listées ci-dessous et utilisées par celles-ci à des fins de prospection commerciale par SMS, MMS, téléphone, email et courrier. Les données sont conservées pendant 3 ans à compter de leur collecte ou du dernier contact resté sans réponse. Vous disposez d’un droit d’accès, de rectification, de limitation, d’opposition, de suppression et de portabilité de certaines données personnelles vous concernant. Vous pouvez exercer vos droits en contactant les adresses email listées ci-dessous et consulter les sites web de chaque société pour connaître leurs conditions complètes de traitement."
+    },
+    "contact": "Si vous souhaitez nous faire part de vos commentaires, poser une question ou exercer vos droits relatifs à vos données personnelles, utilisez simplement notre formulaire ou contactez-nous à l’adresse {{email}} ",
+    "labels": {
+    "company":"Société",
+    "privacy_policy":"Politique données personnelles"
+  }
+  },
 
   "footer": {
     "copyright": "© {{year}} Auto Éco Expert. Tous droits réservés.",
@@ -161,7 +186,8 @@
     "description": "Notre IA vous aide à économiser sur votre prochain véhicule en comparant des milliers d'offres selon vos critères.",
     "howItWorks": "Comment ça marche",
     "testimonials": "Témoignages",
-    "faq": "FAQ"
+    "faq": "FAQ",
+    "partners_privacy": "Confidentialité des partenaires"
   },
 
   "privacy": {
@@ -268,6 +294,14 @@
       }
     ]
   },
-  "ACCOUNT_ALREADY_EXISTS": "Un compte existe déjà pour l'adresse : {{email}}. Nous venons de vous envoyer un e-mail contenant un code à 5 chiffres pour récupérer votre compte. Ce code est valide 15 minutes."
-
+  "ACCOUNT_ALREADY_EXISTS": "Un compte existe déjà pour l'adresse : {{email}}. Nous venons de vous envoyer un e-mail contenant un code à 5 chiffres pour récupérer votre compte. Ce code est valide 15 minutes.",
+ "notfound": {
+    "meta": {
+      "title": "Page non trouvée",
+      "description": "La page que vous recherchez n'existe pas ou a été déplacée."
+    },
+    "title": "Page non trouvée",
+    "message": "Désolé, la page que vous cherchez n’existe pas ou a été déplacée.",
+    "back_home": "Retour à l'accueil"
+  }
 }

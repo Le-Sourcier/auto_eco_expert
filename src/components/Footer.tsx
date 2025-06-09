@@ -90,6 +90,12 @@ const Footer = () => {
                   </a>
                 </li>
               ))}
+              <a
+                href="/partners-privacy"
+                className="text-gray-400 hover:text-[var(--secondary-500)] transition-colors focus:outline-none focus:ring-2 focus:ring-[var(--secondary-500)] rounded-md px-2 py-1 inline-block"
+              >
+                {t("footer.partners_privacy")}
+              </a>
             </ul>
           </div>
 

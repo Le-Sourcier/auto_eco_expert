@@ -12,6 +12,8 @@ import "./i18n/i18n";
 import "./index.css";
 import { AuthProvider } from "./services/providers/authProvider";
 import Cookies from "js-cookie";
+import InfoPartner from "./pages/InfoPartner";
+import NotFoundPage from "./pages/NotFound";
 
 function App() {
   const { i18n } = useTranslation();
@@ -28,11 +30,13 @@ function App() {
         <Router>
           <Routes>
             <Route path="/" element={<LandingPage />} />
+            <Route path="/partners-privacy" element={<InfoPartner />} />
             <Route path="/merci" element={<ThankYouPage />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/terms" element={<TermsOfService />} />
             <Route path="/cookies" element={<CookiePolicy />} />
             <Route path="/gdpr" element={<GDPRPolicy />} />
+            <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </Router>
       </AuthProvider>

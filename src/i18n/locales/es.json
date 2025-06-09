@@ -148,6 +148,31 @@
       "BROWSER_NO_VIDEO_SUPPORT": "Su navegador no es compatible con la reproducción de video."
 
     },
+  "infoPartner": {
+    "meta": {
+      "title": "Socios y protección de datos",
+      "description": "Conozca nuestra política de tratamiento de datos personales, la lista de socios y cómo ejercer sus derechos conforme a la ley francesa de protección de datos."
+    },
+    "hero": {
+      "title": "Uso de los datos recopilados y nuestros socios",
+      "intro": "Esta Política de Protección de Datos Personales tiene como objetivo informarle sobre el tratamiento de sus datos personales durante su navegación por el sitio web, la recopilación de sus datos en nuestros distintos sitios, y proporcionarle la lista de socios y anunciantes con los que trabajamos."
+    },
+    "main_text": {
+      "mission": "Una de las misiones de jechoisimavoiture es permitir a los usuarios registrados recibir las mejores ofertas de la web por correo electrónico: promociones, descuentos, ofertas para participar en concursos y anuncios de nuevos sitios.",
+      "data_usage_warning": "Si utiliza los servicios de sitios asociados y decide compartir sus datos personales con ellos, tenga en cuenta que la recopilación y el uso de sus datos por parte de estos sitios están sujetos a sus propias políticas de tratamiento de datos.",
+      "responsibility_warning": "No somos responsables del uso que hagan los sitios asociados de los datos personales.",
+      "legal_notice": "De conformidad con la Ley modificada del 6 de enero de 1978 sobre Tecnología de la Información, Archivos y Libertades (la \"Ley de Protección de Datos\"), los tratamientos de datos personales realizados desde nuestros sitios están declarados ante la Autoridad Francesa de Protección de Datos (CNIL)."
+    },
+    "controller_section": {
+      "title": "¿Quién es responsable del tratamiento de sus datos personales?",
+      "description": "Los datos recopilados se transmiten a las empresas que se enumeran a continuación y son utilizados por estas con fines de prospección comercial mediante SMS, MMS, teléfono, correo electrónico y correo postal. Los datos se conservan durante 3 años desde su recopilación o desde el último contacto sin respuesta. Usted tiene derecho a acceder, rectificar, limitar, oponerse, suprimir y portar ciertos datos personales. Puede ejercer sus derechos contactando con las direcciones de correo electrónico que se indican a continuación y consultar las condiciones completas del tratamiento en los sitios web de cada empresa."
+    },
+    "contact": "Si desea enviarnos comentarios, tiene preguntas o inquietudes, o desea ejercer sus derechos relacionados con sus datos personales, utilice simplemente nuestro formulario o escríbanos a {{email}}",
+    "labels": {
+    "company":"Empresa",
+    "privacy_policy":"Política de datos personales"
+  }
+  },
 
   "footer": {
     "copyright": "© {{year}} Auto Eco Expert. Todos los derechos reservados.",
@@ -162,8 +187,9 @@
     "description": "Nuestra IA le ayuda a ahorrar en su próximo vehículo comparando miles de ofertas según sus criterios.",
     "howItWorks": "Cómo funciona",
     "testimonials": "Testimonios",
-    "faq": "Preguntas frecuentes"
-  },
+    "faq": "Preguntas frecuentes",
+    "partners_privacy": "Privacidad de los socios"
+},
   "privacy": {
     "meta": {
       "title": "Política de Privacidad",
@@ -268,6 +294,14 @@
       }
     ]
   },
-  "ACCOUNT_ALREADY_EXISTS": "Ya existe una cuenta para esta dirección: {{email}}. Acabamos de enviarle un correo electrónico con un código de 5 dígitos para recuperar su cuenta. Este código es válido durante 15 minutos."
-
+  "ACCOUNT_ALREADY_EXISTS": "Ya existe una cuenta para esta dirección: {{email}}. Acabamos de enviarle un correo electrónico con un código de 5 dígitos para recuperar su cuenta. Este código es válido durante 15 minutos.",
+   "notfound": {
+    "meta": {
+      "title": "Página no encontrada",
+      "description": "La página que buscas no existe o ha sido movida."
+    },
+    "title": "Página no encontrada",
+    "message": "Lo sentimos, la página que buscas no existe o ha sido movida.",
+    "back_home": "Volver al inicio"
+  }
 }

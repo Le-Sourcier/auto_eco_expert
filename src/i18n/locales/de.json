@@ -148,6 +148,32 @@
       "BROWSER_NO_VIDEO_SUPPORT": "Ihr Browser unterstützt keine Videowiedergabe."
 
     },
+  "infoPartner": {
+    "meta": {
+      "title": "Partner und Datenschutz",
+      "description": "Erfahren Sie mehr über unsere Datenschutzrichtlinie, die Liste unserer Partner und wie Sie Ihre Rechte gemäß dem französischen Datenschutzgesetz ausüben können."
+    },
+    "hero": {
+      "title": "Verwendung gesammelter Daten und unserer Partner",
+      "intro": "Diese Datenschutzrichtlinie soll Sie über die Verarbeitung Ihrer personenbezogenen Daten beim Besuch unserer Website, die Erhebung Ihrer Daten auf unseren verschiedenen Seiten sowie über die Liste der Partner und Werbetreibenden informieren, mit denen wir zusammenarbeiten."
+    },
+    "main_text": {
+      "mission": "Eine der Aufgaben von jechoisimavoiture besteht darin, registrierten Nutzern per E-Mail die besten Angebote aus dem Internet zu übermitteln: Werbeaktionen und Rabatte, Angebote zur Teilnahme an Gewinnspielen und Ankündigungen neuer Websites.",
+      "data_usage_warning": "Wenn Sie die Dienste von Partnerseiten nutzen und sich entscheiden, ihnen Ihre personenbezogenen Daten mitzuteilen, beachten Sie bitte, dass die Erhebung und Verwendung Ihrer Daten durch diese Seiten deren eigenen Datenschutzrichtlinien unterliegt.",
+      "responsibility_warning": "Wir übernehmen keine Verantwortung für die Art und Weise, wie Partnerseiten personenbezogene Daten verwenden.",
+      "legal_notice": "Gemäß dem geänderten Gesetz vom 6. Januar 1978 über Informationstechnologie, Dateien und Freiheiten (das \"Datenschutzgesetz\") werden die auf unseren Websites durchgeführten Datenverarbeitungen bei der französischen Datenschutzbehörde (CNIL) gemeldet."
+    },
+    "controller_section": {
+      "title": "Wer ist für die Verarbeitung Ihrer personenbezogenen Daten verantwortlich?",
+      "description": "Die gesammelten Daten werden an die unten aufgeführten Unternehmen weitergegeben und von diesen zu Werbezwecken per SMS, MMS, Telefon, E-Mail und Post verwendet. Die Daten werden 3 Jahre lang ab der Erhebung oder dem letzten erfolglosen Kontakt gespeichert. Sie haben das Recht auf Zugang, Berichtigung, Einschränkung, Widerspruch, Löschung und Übertragbarkeit bestimmter personenbezogener Daten. Sie können Ihre Rechte ausüben, indem Sie die unten angegebenen E-Mail-Adressen kontaktieren und die vollständigen Datenschutzrichtlinien auf den Websites der jeweiligen Unternehmen einsehen."
+    },
+    "contact": "Wenn Sie uns Feedback geben möchten, Fragen oder Bedenken haben oder Ihre Datenschutzrechte ausüben möchten, verwenden Sie einfach unser Formular oder kontaktieren Sie uns unter {{email}}",
+  "labels": {
+    "company":"Unternehmen",
+    "privacy_policy":"Datenschutzrichtlinie"
+  }
+},
+  
   "footer": {
     "copyright": "© {{year}} Auto Eco Expert. Alle Rechte vorbehalten.",
     "privacy": "Datenschutzrichtlinie",
@@ -161,7 +187,8 @@
     "description": "Unsere KI hilft Ihnen, beim Kauf Ihres nächsten Fahrzeugs zu sparen, indem sie Tausende von Angeboten nach Ihren Kriterien vergleicht.",
     "howItWorks": "Wie es funktioniert",
     "testimonials": "Kundenmeinungen",
-    "faq": "FAQ"
+    "faq": "FAQ",
+    "partners_privacy":"Datenschutz der Partner"
   },
   "privacy": {
     "meta": {
@@ -268,6 +295,14 @@
     ]
   },
   
-"ACCOUNT_ALREADY_EXISTS": "Für diese Adresse existiert bereits ein Konto: {{email}}. Wir haben Ihnen gerade eine E-Mail mit einem 5-stelligen Code gesendet, um Ihr Konto wiederherzustellen. Dieser Code ist 15 Minuten gültig."
-
+"ACCOUNT_ALREADY_EXISTS": "Für diese Adresse existiert bereits ein Konto: {{email}}. Wir haben Ihnen gerade eine E-Mail mit einem 5-stelligen Code gesendet, um Ihr Konto wiederherzustellen. Dieser Code ist 15 Minuten gültig.",
+  "notfound": {
+    "meta": {
+      "title": "Seite nicht gefunden",
+      "description": "Die Seite, die Sie suchen, existiert nicht oder wurde verschoben."
+    },
+    "title": "Seite nicht gefunden",
+    "message": "Entschuldigung, die Seite, die Sie suchen, existiert nicht oder wurde verschoben.",
+    "back_home": "Zurück zur Startseite"
+  }
 }
